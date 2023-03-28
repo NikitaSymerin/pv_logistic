@@ -1,0 +1,195 @@
+@import url("media.css");
+@font-face {
+  font-family: "Actay Wide";
+  src: url("../fonts/actaywide.otf");
+}
+
+* {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+  overflow-x: hidden;
+}
+
+.mg {
+  margin: 0 8vw;
+}
+
+.main {
+  background-image: linear-gradient(to right, rgba(0, 0, 0), rgba(0, 0, 0, 0)),
+    url("../img/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100%;
+  height: 110vh;
+}
+
+header {
+  display: flex;
+  height: 200px;
+  align-items: center;
+  justify-content: space-between;
+  text-align: center;
+}
+
+.header__item {
+  min-width: 180px;
+  font-weight: 700;
+}
+
+.header__item__logo {
+  width: 100%;
+}
+
+.header__item__links {
+  width: 55%;
+  display: flex;
+  justify-content: space-around;
+  flex-flow: row wrap-reverse;
+  align-items: center;
+}
+
+button {
+  font-family: "Actay Wide";
+  border-radius: 20px;
+  letter-spacing: 1px;
+  cursor: pointer;
+  border: 1px;
+  position: relative;
+  transition: 0.5s ease;
+}
+
+.header__item__button:hover {
+  background: #fff;
+  color: #000;
+}
+
+.header__item__button:active {
+  background: rgba(255,255,255, 0.8);
+}
+
+.bordered::before {
+  z-index: -1;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 20px;
+  border: 1px solid transparent;
+  background: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.8),
+      rgba(0, 0, 0, 0)
+    )
+    border-box;
+  -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+}
+
+.header__item__button {
+  padding: 0 15px;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(20px);
+  font-size: 20px;
+}
+
+.wrapper__text {
+  width: 60vw;
+  display: flex;
+  flex-flow: column;
+}
+
+.wrapper__title {
+  font-family: "Actay Wide";
+  font-size: 60px;
+}
+
+.wrapper__decription {
+  font-size: 24px;
+  padding-top: 20px;
+}
+
+.wrapper__form {
+  background: rgba(19, 23, 27, 0.5);
+  width: 38vw;
+  border-radius: 20px;
+  position: relative;
+  margin-top: 40px;
+  backdrop-filter: blur(20px);
+}
+
+form {
+  padding: 35px;
+}
+
+.form__title {
+  font-family: "Actay Wide";
+  font-size: 36px;
+}
+
+.form__input__box-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 15px;
+    flex-wrap: wrap;
+}
+
+.input-item {
+    width: 39%;
+    height: 75px;
+    font-size: 20px;
+    padding: 0 20px;
+    color: black;
+    border-radius: 20px;
+    border: 2px solid #fff;
+}
+
+.input-item:hover {
+  border: 2px solid #825A5A;
+}
+
+.input-item:focus::placeholder {
+  color: #000;
+}
+
+.input-item:focus {
+  border: 2px solid #fff;
+}
+
+.form_btn {
+    width: 100%;
+    margin-top: 20px;
+    height: 75px;
+    position: relative;
+    background: linear-gradient(270.99deg, #FF0000 1.85%, #F05252 95.25%);
+    font-size: 24px;
+}
+
+.form_btn:hover {
+    background: linear-gradient(270.99deg, #FF0000 1.85%, #f57070 95.25%);
+    box-shadow: 0 0 20px rgba(255, 103, 103, 0.613);
+}
+
+.transition {
+  background: linear-gradient(to top, white 2.5%, rgba(255,255,255, 0) 95%);
+  margin-top: -9.9vh;
+  height: 10vh;
+}
+
+.about {
+  height: 100vh;
+  width: 100%;
+}
