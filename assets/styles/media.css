@@ -7,12 +7,8 @@
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1400px) {
-  .wrapper {
-    margin-top: -30px !important;
-  }
   .wrapper__form {
     width: 50vw !important;
-    margin-top: 20px !important;
   }
   .header__item {
     font-size: 14px;
@@ -42,9 +38,19 @@
   .header__item__logo {
     width: 220px !important;
   }
+  .about__logistics__item {
+    font-size: 2.3vw !important;
+  }
+  .arrow5 {
+    width: 5vw !important;
+    height: 3.9vw !important;
+  }
+  .about__calculate form .input-item {
+    width: auto !important;
+  }
 }
 
-@media screen and (min-width: 320px) and (max-width: 900px) {
+@media screen and (min-width: 320px) and (max-width: 1024px) {
   .main {
     background-image: linear-gradient(
         to right,
@@ -90,9 +96,118 @@
     width: 35% !important;
     height: 55px !important;
   }
+  .about__inner {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr !important;
+  }
+  .about__centres {
+    background-size: 50%;
+  }
+  .centres__text .centres__title {
+    max-width: 100% !important;
+  }
+  .about__title {
+    max-width: 100% !important;
+  }
+  .about__inner__block .about__inner_block__title {
+    font-size: 18px !important;
+  }
+  .about__coop {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr !important;
+  }
+  .coop__item:nth-child(1) {
+    background-size: 70% !important;
+    background-image: linear-gradient(to bottom, #20202063, #20202063),
+      url("../img/car_btn.png") !important;
+    grid-column-start: 2 span !important;
+    grid-row-start: 1 span !important;
+  }
+  .coop_desc {
+    font-size: 16px !important;
+  }
+  .coop__title {
+    font-size: 3vw !important;
+  }
+  .coop__item button {
+    width: 100% !important;
+  }
+  .coop__item:nth-child(2) {
+    background-image: url("../img/block3_btn.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: bottom right !important;
+  }
+  .coop__item:nth-child(3) {
+    background-image: url("../img/block4_btn.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: bottom left !important;
+  }
+  .about__logistics__item {
+    font-size: 2.3vw !important;
+  }
+  .arrow5 {
+    width: 4vw !important;
+    height: 2.9vw !important;
+  }
+  .about__calculate form .input-item {
+    width: auto !important;
+  }
+  .about__calculate {
+    flex-direction: column !important;
+  }
+  .about__calculate form {
+    width: 100% !important;
+    grid-template-columns: 1fr 1fr 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr 1fr !important;
+  }
 }
 
-@media screen and (min-width: 200px) and (max-width: 480px) {
+@media screen and (min-width: 320px) and (max-width: 640px) {
+  .centres__text {
+    padding-bottom: 50vw !important;
+  }
+  .centres__text .centres__title {
+    font-size: 6vw !important;
+  }
+  .centres__text span {
+    max-width: 100% !important;
+  }
+  .about__centres {
+    background-size: 100% !important;
+    background-position: bottom !important;
+  }
+  .centres__blocks__item {
+    width: 50% !important;
+  }
+  .about__title {
+    font-size: 8vw !important;
+  }
+  .grid {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr 1fr !important;
+  }
+  .about__text {
+    margin-top: 50px !important;
+  }
+  .about__inner__block {
+    margin: 5px !important;
+  }
+  .coop__item {
+    margin: 5px !important;
+  }
+  .coop__title {
+    font-size: 2.5vw !important;
+  }
+  .about__logistics__item {
+    font-size: 2.6vw !important;
+  }
+  .about__calculate form {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr !important;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 485px) {
   .wrapper__form {
     width: 93vw !important;
   }
@@ -129,9 +244,53 @@
   .input-item {
     width: 30% !important;
   }
+  .centres__blocks {
+    flex-direction: column;
+    min-height: 120px;
+    justify-content: space-between;
+  }
+  .centres__blocks__item {
+    width: 100% !important;
+  }
+  .centres__text .centres__title {
+    font-size: 5.5vw !important;
+  }
+  .centres__text .centres__title2 {
+    font-size: 5.5vw !important;
+  }
+  .about span {
+    font-size: 16px !important;
+  }
+  .about__coop {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 1fr 1.5fr 1.5fr !important;
+  }
+  .coop__item:nth-child(1) {
+    background-image: url("../img/car_btn.png") !important;
+    background-size: 90% !important;
+    grid-column-start: 1 span !important;
+    grid-row-start: 2 span !important;
+  }
+  .coop__item:nth-child(2) {
+    background-image: url("../img/block1_btn.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: bottom right !important;
+  }
+  .coop__item:nth-child(3) {
+    background-image: url("../img/block2_btn.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: top right !important;
+  }
 }
 
-@media screen and (min-width: 200px) and (max-width: 420px) {
+@media screen and (min-width: 320px) and (max-width: 400px) {
+  .about__coop {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 1fr 1.75fr 1.75fr !important;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 420px) {
   .form__input__box-row {
     margin: 0 !important;
     width: 100% !important;
@@ -141,9 +300,29 @@
     margin-top: 10px !important;
     height: 45px !important;
   }
+  .about__inner {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 1fr 1fr 1fr 1fr !important;
+  }
+  .about__calculate form {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr !important;
+  }
+  .input__grid1 {
+    grid-row-start: 1 !important;
+    grid-column-start: 1 !important;
+  }
+  .input__grid2 {
+    grid-row-start: 2 !important;
+    grid-column-start: 1 !important;
+  }
+  .input__grid7 {
+    grid-row-start: 7 !important;
+    grid-column-start: 1 !important;
+  }
 }
 
-@media screen and (min-width: 200px) and (max-width: 340px) {
+@media screen and (min-width: 320px) and (max-width: 340px) {
   header {
     height: 150px !important;
   }
