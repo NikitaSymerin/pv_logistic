@@ -2,7 +2,9 @@ const object = document.getElementById("object");
 
 let observer = new IntersectionObserver((entries, observer) => {
   entries.forEach((entry) => {
-    if (entry.isIntersecting) animateDelivery();
+    if (entry.isIntersecting) {
+      setInterval(animateDelivery, 3000);
+    }
   });
 });
 
