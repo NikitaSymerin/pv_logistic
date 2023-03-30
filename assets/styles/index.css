@@ -14,6 +14,7 @@
   outline: none;
   overflow-x: hidden;
   scroll-behavior: smooth;
+  box-sizing: border-box;
 }
 
 .mg {
@@ -148,7 +149,7 @@ form {
 }
 
 .input-item {
-  width: 39%;
+  width: 45%;
   height: 75px;
   font-size: 20px;
   padding: 0 20px;
@@ -598,4 +599,127 @@ form {
 
 .about__calculate__pic img {
   width: 90%;
+}
+
+.about__slider {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn__prev, .btn__next {
+  height: 60px;
+  width: 60px;
+  border-radius: 50px;
+  margin-left: 15px;
+}
+
+.slider__buttons, .btn__prev, .btn__next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow: row;
+  transition: none;
+}
+
+.btn__prev {
+  transform: rotate(180deg);
+}
+
+.slider__item {
+  border-radius: 25px;
+  padding: 25px;
+  background-color: #EFEFEF;
+  min-width: 25%;
+  min-height: 50vh;
+  margin: 20px;
+}
+
+.slider__item__title, .slider__item__body {
+  color: #000;
+} 
+
+.slider__item__title {
+  font-family: 'Actay Wide';
+  font-weight: 700;
+  font-size: 28px;
+  padding-top: 20px;
+}
+
+.slider__item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.slider__item__header__rate {
+  width: 15vw;
+}
+
+.slider__item__header__rate img {
+  padding: 0 5px;
+}
+
+.slider__item__header__user {
+  width: 65px;
+  height: 65px;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Actay Wide';
+  font-weight: 700;
+  font-size: 28px;
+  background-color: #121212;
+}
+
+.slider__container {
+  overflow: hidden;
+}
+
+.slider__track {
+  display: flex;
+  transition: .2s ease;
+  overflow: visible;
+}
+
+footer {
+  margin-top: 10vh;
+  background-color: #202020;
+  width: 100%;
+  padding: 60px 0;
+}
+
+.footer__text {
+  display: flex;
+  flex-direction: row;
+}
+
+.footer__title {
+  font-weight: 700;
+  font-family: 'Actay Wide';
+  padding: 25px 0 10px 0;
+}
+
+.footer__text__contact, .footer__text__addition {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer__text__contact {
+  justify-content: space-around;
+}
+
+.footer__text__addition {
+  padding-left: 50px;
+  max-width: 50%;
+}
+
+.footer__container {
+  display: flex;
+}
+
+.footer__map {
+  width: 50%;
+  height: 250px;
+  border-radius: 20px;
 }

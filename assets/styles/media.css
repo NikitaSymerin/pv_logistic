@@ -28,7 +28,7 @@
     padding-top: 10px !important;
   }
   .input-item {
-    width: 35% !important;
+    width: 45% !important;
     height: 55px !important;
     font-size: 16px !important;
   }
@@ -93,7 +93,7 @@
     font-size: 28px !important;
   }
   .input-item {
-    width: 35% !important;
+    width: 45% !important;
     height: 55px !important;
   }
   .about__inner {
@@ -159,6 +159,16 @@
     width: 100% !important;
     grid-template-columns: 1fr 1fr 1fr 1fr !important;
     grid-template-rows: 1fr 1fr 1fr !important;
+  }
+  .slider__item__header__rate {
+    width: auto !important;
+  }
+  .footer__container {
+    flex-flow: column;
+  }
+  .footer__map {
+    width: 100% !important;
+    margin-top: 40px;
   }
 }
 
@@ -242,7 +252,7 @@
     margin: 2vh 1vw !important;
   }
   .input-item {
-    width: 30% !important;
+    width: 45% !important;
   }
   .centres__blocks {
     flex-direction: column;
