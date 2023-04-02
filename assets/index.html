@@ -6,33 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="styles/index.css" rel="stylesheet" />
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
     <title>ПВ ЛОГИСТИК</title>
 </head>
 
 <body>
-    <div class="calc__modal" id="modal">
-        <div class="calc__modal__wrap">
-            <div class="calc__modal__window bordered" role="dialog">
-                <span class="modal__title">Стоимость доставки:</span>
-                <div class="modal__text">
-                    <span class="modal__text__grid">Откуда: <span id="modal-from">Москва</span></span>
-                    <span class="modal__text__grid">Вес груза: <span id="modal-weight">1</span> кг</span>
-                    <span class="modal__text__grid">Куда: <span id="modal-to">Тверь</span></span>
-                    <span class="modal__text__grid">Объем груза: <span id="modal-volume">1</span> м3</span>
-                    <span class="modal__text__grid">Стоимость: <span id="modal-cost">1916.6</span> руб.</span>
-                    <span class="modal__text__grid">Расстояние: <span id="modal-dist">181,5</span> км</span>
-                </div>
-                <div class="modal__inputs">
-                    <input id="modal-tel" type="tel" class="input-item" placeholder="Номер телефона">
-                    <input type="coment" class="input-item modal__item2" placeholder="Комментарий">
-                </div>
-                <div class="modal__btn__container">
-                    <button type="submit" class="form_btn bordered modal__btn">Заказать звонок</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <section class="main">
         <div class="mg">
             <header>
@@ -242,7 +220,7 @@
                     <span class="coop__title">ПЕРЕВОЗКИ МЕЖДУ СКЛАДАМИ И ПУНКТАМИ ВЫДАЧИ ЗАКАЗОВ</span>
                     <span class="coop_desc">Постоянным партнерам оказываем складские услуги и готовы по запросу
                         организовать складскую деятельность в любом регионе России и Казахстана</span>
-                    <button class="form_btn bordered btn_white">Выбрать</button>
+                    <a href="about.html"><button class="form_btn bordered btn_white">Выбрать</button></a>
                 </div>
                 <div class="coop__item">
                     <span class="coop__title">ПЕРЕВОЗКИ И УПРАВЛЕНИЕ СОРТИРОВОЧНЫМИ ЦЕНТРАМИ</span>
@@ -284,9 +262,9 @@
                 <img src="img/plane.png" class="iconmap" id="object3">
             </div>
             <div class="about__text">
-                <div class="about__title cens">РАСЧЁТ СТОИМОСТИ</div>
+                <div class="about__title cens" id="target">РАСЧЁТ СТОИМОСТИ</div>
             </div>
-            <div class="about__calculate" id="target">
+            <div class="about__calculate">
                 <form>
                     <input type="name" class="input-item input__grid1" placeholder="Имя">
                     <input type="tel" class="input-item input__grid2" placeholder="Телефон">
@@ -437,6 +415,28 @@
             </div>
         </div>
     </footer>
+    <div class="calc__modal" id="modal">
+        <div class="calc__modal__wrap">
+            <div class="calc__modal__window bordered" role="dialog">
+                <span class="modal__title">Стоимость доставки:</span>
+                <div class="modal__text">
+                    <span class="modal__text__grid">Откуда: <span id="modal-from">Москва</span></span>
+                    <span class="modal__text__grid">Вес груза: <span id="modal-weight">1</span> кг</span>
+                    <span class="modal__text__grid">Куда: <span id="modal-to">Тверь</span></span>
+                    <span class="modal__text__grid">Объем груза: <span id="modal-volume">1</span> м3</span>
+                    <span class="modal__text__grid">Стоимость: <span id="modal-cost">1916.6</span> руб.</span>
+                    <span class="modal__text__grid">Расстояние: <span id="modal-dist">181,5</span> км</span>
+                </div>
+                <div class="modal__inputs">
+                    <input id="modal-tel" type="tel" class="input-item" placeholder="Номер телефона">
+                    <input type="coment" class="input-item modal__item2" placeholder="Комментарий">
+                </div>
+                <div class="modal__btn__container">
+                    <button type="submit" class="form_btn bordered modal__btn">Заказать звонок</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <script defer src="main.js"></script>
 </body>

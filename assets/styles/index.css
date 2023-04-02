@@ -19,6 +19,8 @@
 
 .mg {
   margin: 0 8vw;
+  height: 100%;
+  overflow-y: hidden;
 }
 
 .main {
@@ -28,6 +30,11 @@
   background-size: cover;
   background-position: 100%;
   height: 110vh;
+}
+
+.about__main {
+  background-image: linear-gradient(to right, rgba(0, 0, 0), rgba(0, 0, 0, 0)),
+    url("../img/about_back.png") !important;
 }
 
 header {
@@ -75,7 +82,6 @@ button {
 }
 
 .bordered::before {
-  z-index: -1;
   content: "";
   position: absolute;
   top: 0;
@@ -111,6 +117,7 @@ button {
   width: 60vw;
   display: flex;
   flex-flow: column;
+  text-align: left;
 }
 
 .wrapper__title {
@@ -130,6 +137,12 @@ button {
   position: relative;
   margin-top: 40px;
   backdrop-filter: blur(20px);
+}
+
+.wrapper__about {
+  height: 60%;
+  display: flex;
+  align-items: center;
 }
 
 form {
@@ -156,7 +169,8 @@ form {
   color: black;
   border-radius: 20px;
   border: 2px solid #fff;
-  background: #EFEFEF;
+  background: #efefef;
+  z-index: 98;
 }
 
 .input-item:hover {
@@ -241,7 +255,7 @@ form {
 }
 
 .about__inner__block:hover {
-  background: #EFEFEF;
+  background: #efefef;
   box-shadow: 0 0 15px #e6e6e6;
 }
 
@@ -497,7 +511,6 @@ form {
 }
 
 .pos {
-  
 }
 
 .about__log {
@@ -642,14 +655,17 @@ form {
   justify-content: space-between;
 }
 
-.btn__prev, .btn__next {
+.btn__prev,
+.btn__next {
   height: 60px;
   width: 60px;
   border-radius: 50px;
   margin-left: 15px;
 }
 
-.slider__buttons, .btn__prev, .btn__next {
+.slider__buttons,
+.btn__prev,
+.btn__next {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -664,17 +680,18 @@ form {
 .slider__item {
   border-radius: 25px;
   padding: 25px;
-  background-color: #EFEFEF;
+  background-color: #efefef;
   min-width: 25%;
   margin: 20px;
 }
 
-.slider__item__title, .slider__item__body {
+.slider__item__title,
+.slider__item__body {
   color: #000;
-} 
+}
 
 .slider__item__title {
-  font-family: 'Actay Wide';
+  font-family: "Actay Wide";
   font-weight: 700;
   font-size: 28px;
   padding-top: 20px;
@@ -701,7 +718,7 @@ form {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-family: 'Actay Wide';
+  font-family: "Actay Wide";
   font-weight: 700;
   font-size: 28px;
   background-color: #121212;
@@ -713,7 +730,7 @@ form {
 
 .slider__track {
   display: flex;
-  transition: .2s ease;
+  transition: 0.2s ease;
   overflow: visible;
 }
 
@@ -731,11 +748,12 @@ footer {
 
 .footer__title {
   font-weight: 700;
-  font-family: 'Actay Wide';
+  font-family: "Actay Wide";
   padding: 25px 0 10px 0;
 }
 
-.footer__text__contact, .footer__text__addition {
+.footer__text__contact,
+.footer__text__addition {
   display: flex;
   flex-direction: column;
 }
@@ -771,7 +789,7 @@ footer {
   -webkit-overflow-scrolling: touch;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
   z-index: 99;
   padding: 30px 0;
@@ -804,10 +822,10 @@ footer {
   opacity: 0;
 }
 
-.calc__modal--active{
+.calc__modal--active {
   visibility: visible;
 }
-.calc__modal--active .calc__modal__window{
+.calc__modal--active .calc__modal__window {
   transform: scale(1);
   opacity: 1;
 }
@@ -824,15 +842,16 @@ footer {
   padding-bottom: 10px;
   display: flex;
   justify-content: center;
-  font-family: 'Actay Wide';
+  font-family: "Actay Wide";
 }
 
 .modal__btn {
   width: 80%;
   margin-bottom: 20px;
-} 
+}
 
-.modal__text__grid:nth-child(5), .modal__text__grid:nth-child(6) {
+.modal__text__grid:nth-child(5),
+.modal__text__grid:nth-child(6) {
   font-weight: 800;
 }
 
@@ -857,6 +876,7 @@ footer {
 .modal__inputs .input-item {
   width: 95% !important;
   margin: 20px 0;
+  z-index: 100;
 }
 
 .modal__item2 {
@@ -867,4 +887,157 @@ footer {
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.dark__back {
+  background-color: #202020;
+}
+
+.dark__back span {
+  color: #fff;
+}
+
+.item__block {
+  padding: 35px;
+  border-radius: 20px;
+}
+
+.item__block span {
+  font-size: 24px;
+  display: flex;
+  margin-top: 20px;
+}
+
+.item__block .about__forwhat__item {
+  font-size: 36px;
+}
+
+.about__forwhat {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 500px;
+}
+
+.item__img {
+  border-radius: 20px;
+  background-position: left;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.about__forwhat__item {
+  margin: 15px;
+}
+
+.item__title {
+  font-size: 36px !important;
+  font-family: "Actay Wide";
+  margin: 0 !important;
+}
+
+.block__img1 {
+  background-image: url("../img/block_item.png");
+}
+
+.block__img2 {
+  background-image: url("../img/block_item2.png");
+}
+
+.about__block2__item {
+  margin: 15px;
+}
+
+.about__item span {
+  font-family: "Actay Wide";
+  padding-top: 20px;
+}
+
+.about__item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.about__items {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
+.about__block2 {
+  min-height: 500px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.about__block2 .item__img {
+  background-image: url("../img/problem.png");
+}
+
+.about__besides {
+  background-image: url("../img/card_back2.png");
+  background-repeat: no-repeat;
+  background-position: bottom right;
+  background-size: 30%;
+  margin: 15px;
+}
+
+.about__besides__text {
+  width: 50vw;
+}
+
+.reverse {
+  margin-bottom: -9.9vh;
+  margin-top: 10vh !important;
+  transform: rotate(180deg);
+}
+
+.second {
+  margin: 0;
+}
+
+.footer__back {
+  background-image: linear-gradient(to right, rgba(0, 0, 0), rgba(0, 0, 0, 0)),
+    url("../img/footer_back.png") !important;
+}
+
+.footer__back .mg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper__footer {
+  background-color: rgba(19, 23, 27, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  justify-content: center;
+  display: flex;
+  width: 850px;
+  max-width: 100%;
+  padding: 45px 2vw;
+  flex-direction: column;
+}
+
+.wrapper__footer .wrapper__text {
+  text-align: center;
+  width: 100%;
+  align-items: center;
+}
+
+.wrapper__footer .wrapper__text .wrapper__decription {
+  padding: 24px 0;
+  width: 50%;
+}
+
+.wrapper__footer a {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  padding-bottom: 20px;
+}
+
+.wrapper__footer a button {
+  width: 70%;
 }
