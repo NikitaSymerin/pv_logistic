@@ -218,6 +218,25 @@
     grid-template-columns: 1fr 1fr !important;
     grid-template-rows: 1fr 1fr 1fr 1fr 1fr !important;
   }
+  .calc__modal__window {
+    width: 330px !important;
+  }
+  .modal__inputs {
+    padding-top: 15px;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 1fr 1fr !important;
+  }
+  .calc__modal__window .modal__inputs .input-item {
+    width: 100% !important;
+    margin: 5px 0 !important;
+  }
+  .modal__text {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr !important;
+  }
+  .modal__btn {
+    width: 100% !important;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 485px) {
