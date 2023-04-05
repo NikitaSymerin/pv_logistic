@@ -69,7 +69,7 @@ button {
   cursor: pointer;
   border: 1px;
   position: relative;
-  transition: 0.2s ease;
+  transition: transform 0.2s ease 0s, opacity 0.2s ease 0s;
 }
 
 .header__item__button:hover {
@@ -510,9 +510,6 @@ form {
   position: absolute;
 }
 
-.pos {
-}
-
 .about__log {
   width: 100%;
   position: relative;
@@ -822,6 +819,24 @@ footer {
   opacity: 0;
 }
 
+.success__modal__window {
+  z-index: -10000;
+  position: absolute;
+  padding: 35px;
+  border-radius: 20px;
+  margin: 50px 0;
+  flex-shrink: 0;
+  flex-grow: 0;
+  background: rgba(19, 23, 27, 0.5);
+  backdrop-filter: blur(20px);
+  width: 750px;
+  max-width: 90%;
+  overflow: visible;
+  transition: transform 0.2s ease 0s, opacity 0.2s ease 0s;
+  transform: scale(0.9);
+  opacity: 0;
+}
+
 .calc__modal--active {
   visibility: visible;
 }
@@ -859,28 +874,35 @@ footer {
   padding: 5px 0;
 }
 
+.success__text {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+}
+
 .modal__text {
   display: grid;
   font-size: 24px;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr;
   width: 100%;
+  margin-bottom: 15px;
 }
 
 .modal__inputs {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 1fr;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
 }
 
 .modal__inputs .input-item {
-  width: 95% !important;
-  margin: 20px 0;
+  width: 95%;
+  margin: 5px 0;
   z-index: 100;
 }
-
 .modal__item2 {
   grid-column-start: 2 span;
+  width: 97.5% !important;
 }
 
 .modal__btn__container {
@@ -1040,4 +1062,44 @@ footer {
 
 .wrapper__footer a button {
   width: 70%;
+}
+
+.loader__container {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.363);
+  z-index: 200;
+  transition: 0.5s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader__container--hidden {
+  opacity: 0;
+  z-index: 0;
+}
+
+#loader {
+  border: 0.5vw solid #f3f3f3;
+  border-top: 0.5vw solid #ff0000;
+  border-radius: 50%;
+  width: 5vw;
+  height: 5vw;
+  animation: spin 2s linear infinite;
+  z-index: 1000;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

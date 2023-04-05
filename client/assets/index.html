@@ -11,6 +11,9 @@
 </head>
 
 <body>
+    <div class="loader__container">
+        <div id="loader"></div>
+    </div>
     <section class="main">
         <div class="mg">
             <header>
@@ -23,7 +26,7 @@
                     <a class="header__item" href="tel:+79037959524">+7 (903) 795-95-24</a>
                 </div>
                 <div class="header__item grid3">
-                    <button class="header__item__button bordered">ЗАКАЗАТЬ ЗВОНОК</button>
+                    <a href="#target"><button class="header__item__button bordered">ЗАКАЗАТЬ ЗВОНОК</button></a>
                 </div>
             </header>
             <div class="wrapper">
@@ -41,15 +44,15 @@
                             <input id="form-tel" type="tel" class="input-item" placeholder="Телефон">
                         </div>
                         <div class="form__input__box-row">
-                            <input id="form-from" type="from" class="input-item" placeholder="Откуда?">
-                            <input id="form-to" type="to" class="input-item" placeholder="Куда?">
+                            <input id="form-from" type="text" class="input-item" placeholder="Откуда?">
+                            <input id="form-to" type="text" class="input-item" placeholder="Куда?">
                         </div>
                         <div class="form__input__box-row">
-                            <input id="form-weight" type="weight" class="input-item" placeholder="Вес груза (в кг)">
-                            <input id="form-volume" type="volume" class="input-item" placeholder="Объем груза (в м3)">
+                            <input id="form-weight" type="number" class="input-item" placeholder="Вес груза (в кг)">
+                            <input id="form-volume" type="number" class="input-item" placeholder="Объем груза (в м3)">
                         </div>
 
-                        <button onclick="openModal(event)" class="form_btn bordered">Получить расчёт</button>
+                        <button type="submit" onclick="openModal(event, 1)" class="form_btn bordered">Получить расчёт</button>
                     </form>
                 </div>
             </div>
@@ -266,13 +269,13 @@
             </div>
             <div class="about__calculate">
                 <form>
-                    <input type="name" class="input-item input__grid1" placeholder="Имя">
-                    <input type="tel" class="input-item input__grid2" placeholder="Телефон">
-                    <input type="from" class="input-item" placeholder="Откуда?">
-                    <input type="to" class="input-item" placeholder="Куда?">
-                    <input type="weight" class="input-item" placeholder="Вес груза (в кг)">
-                    <input type="volume" class="input-item" placeholder="Объем груза (в м3)">
-                    <button onclick="openModal(event)" class="form_btn bordered input__grid7" type="submit">Получить
+                    <input id="form2-name" type="name" class="input-item input__grid1" placeholder="Имя">
+                    <input id="form2-tel" type="tel" class="input-item input__grid2" placeholder="Телефон">
+                    <input id="form2-from" type="from" class="input-item" placeholder="Откуда?">
+                    <input id="form2-to" type="to" class="input-item" placeholder="Куда?">
+                    <input id="form2-weight" type="weight" class="input-item" placeholder="Вес груза (в кг)">
+                    <input id="form2-volume" type="volume" class="input-item" placeholder="Объем груза (в м3)">
+                    <button onclick="openModal(event, 2)" class="form_btn bordered input__grid7" type="submit">Получить
                         расчёт</button>
                 </form>
                 <div class="about__calculate__pic"><img src="img/formpic.png"></div>
@@ -417,28 +420,37 @@
     </footer>
     <div class="calc__modal" id="modal">
         <div class="calc__modal__wrap">
-            <div class="calc__modal__window bordered" role="dialog">
+            <div class="calc__modal__window bordered">
                 <span class="modal__title">Стоимость доставки:</span>
                 <div class="modal__text">
-                    <span class="modal__text__grid">Откуда: <span id="modal-from">Москва</span></span>
-                    <span class="modal__text__grid">Вес груза: <span id="modal-weight">1</span> кг</span>
-                    <span class="modal__text__grid">Куда: <span id="modal-to">Тверь</span></span>
-                    <span class="modal__text__grid">Объем груза: <span id="modal-volume">1</span> м3</span>
-                    <span class="modal__text__grid">Стоимость: <span id="modal-cost">1916.6</span> руб.</span>
-                    <span class="modal__text__grid">Расстояние: <span id="modal-dist">181,5</span> км</span>
+                    <span class="modal__text__grid">Откуда: <span id="modal-from"></span></span>
+                    <span class="modal__text__grid">Вес груза: <span id="modal-weight"></span> кг</span>
+                    <span class="modal__text__grid">Куда: <span id="modal-to"></span></span>
+                    <span class="modal__text__grid">Объем груза: <span id="modal-volume"></span> м3</span>
+                    <span class="modal__text__grid">Стоимость: <span id="modal-cost"></span> руб.</span>
+                    <span class="modal__text__grid">Расстояние: <span id="modal-dist"></span> км</span>
                 </div>
                 <div class="modal__inputs">
-                    <input id="modal-tel" type="tel" class="input-item" placeholder="Номер телефона">
-                    <input type="coment" class="input-item modal__item2" placeholder="Комментарий">
+                    <input id="modal-mail" type="email" required class="input-item"
+                        placeholder="Адрес электронной почты">
+                    <input id="modal-tel" type="tel" required class="input-item" placeholder="Номер телефона">
+                    <input id="modal-comment" type="text" required class="input-item modal__item2" placeholder="Комментарий">
                 </div>
                 <div class="modal__btn__container">
-                    <button type="submit" class="form_btn bordered modal__btn">Заказать звонок</button>
+                    <button onclick="orderCall()" class="form_btn bordered modal__btn">Заказать звонок</button>
+                </div>
+            </div>
+            <div class="success__modal__window bordered">
+                <span class="modal__title">Ваша заявка успешно отправлена!</span>
+                <span class="success__text">Наш менеджер свяжется с Вами в ближайшее время.</span>
+                <div class="modal__btn__container">
+                    <button onclick="closeModal()" class="form_btn bordered modal__btn">Готово</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <script defer src="main.js"></script>
+    <script defer src="../src/main.js"></script>
 </body>
 
 </html>

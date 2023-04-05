@@ -54,6 +54,9 @@
   .about__besides {
     background-size: 45% !important;
   }
+  #modal-tel, #modal-mail {
+    width: 95% !important;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 1024px) {
@@ -211,6 +214,15 @@
   .wrapper__footer .wrapper__text .wrapper__title {
     font-size: 5vw !important;
   }
+  #modal-tel, #modal-mail {
+    width: 95% !important;
+  }
+  #loader {
+    width: 10vw !important;
+    height: 10vw !important;
+    border: 2vw solid #f3f3f3 !important;
+    border-top: 2vw solid #ff0000 !important;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 640px) {
@@ -262,7 +274,7 @@
   .modal__inputs {
     padding-top: 15px;
     grid-template-columns: 1fr !important;
-    grid-template-rows: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr 1fr !important;
   }
   .calc__modal__window .modal__inputs .input-item {
     width: 100% !important;
@@ -287,6 +299,12 @@
   }
   .wrapper__footer .wrapper__text .wrapper__decription {
     width: 100% !important;
+  }
+  #modal-tel, #modal-mail {
+    width: 100% !important;
+  }
+  .modal__item2 {
+    grid-column-start: auto !important;
   }
 }
 

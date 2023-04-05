@@ -6,6 +6,21 @@ const end2 = document.getElementById("end2");
 const end3 = document.getElementById("end3");
 const btns = document.querySelectorAll(".form_btn");
 const modal = document.getElementById("modal");
+const modalWindow = document.querySelector(".calc__modal__window");
+const loader = document.getElementById("loader");
+const loaderblock = document.querySelector(".loader__container");
+const successModal = document.querySelector(".success__modal__window");
+const data = {
+  name: "",
+  phone: "",
+  from: "",
+  to: "",
+  weight: "",
+  volume: "",
+};
+let distance = 0;
+let cost = 0;
+let comment = "";
 
 document.addEventListener(
   "click",
@@ -100,29 +115,38 @@ function checkBtns() {
 
 function closeModal() {
   modal.classList.remove("calc__modal--active");
+  successModal.style.zIndex = "-10000";
+  successModal.style.opacity = "0"
   modal.style.background = "none";
 }
 
-function openModal(event) {
+async function openModal(event, dir) {
   event.preventDefault();
 
-  const data = {
-    name: document.getElementById("form-name").value,
-    phone: document.getElementById("form-tel").value,
-    from: document.getElementById("form-from").value,
-    to: document.getElementById("form-to").value,
-    weight: document.getElementById("form-weight").value,
-    volume: document.getElementById("form-volume").value,
-  };
+  data.name = document.getElementById(dir == 1 ? "form-name" : "form2-name").value;
+  data.phone = document.getElementById(dir == 1 ? "form-tel" : "form2-tel").value;
+  data.from = document.getElementById(dir == 1 ? "form-from" : "form2-from").value;
+  data.to = document.getElementById(dir == 1 ? "form-to" : "form2-to").value;
+  data.weight = document.getElementById(dir == 1 ? "form-weight" : "form2-weight").value;
+  data.volume = document.getElementById(dir == 1 ? "form-volume" : "form2-volume").value;
+
+  showLoader();
+  try {
+    [distance, cost] = await getData(data);
+  } catch {
+    hideLoader();
+  }
+  hideLoader();
 
   document.getElementById("modal-tel").value = data.phone;
   document.getElementById("modal-from").innerHTML = data.from;
   document.getElementById("modal-to").innerHTML = data.to;
   document.getElementById("modal-weight").innerHTML = data.weight;
   document.getElementById("modal-volume").innerHTML = data.volume;
+  document.getElementById("modal-cost").innerHTML = cost;
+  document.getElementById("modal-dist").innerHTML = distance;
 
-  // cost & distanse calculate
-
+  modalWindow.style.opacity = "1";
   modal.classList.add("calc__modal--active");
   modal.style.background = "rgba(0, 0, 0, 0.5)";
 }
@@ -205,4 +229,88 @@ function thirdPlane() {
   };
 
   const flyInterval = setInterval(fly, 1);
+}
+
+async function getData(data) {
+  const key =
+    "AuhLPv41yqdhHyrTczcWhRj1Ez4w64yryuGGaA7aMBu9X1hqpzjhsgaCKXzAw4b1";
+  const urlLocation = "https://dev.virtualearth.net/REST/v1/Locations?q=";
+  const urlDistance =
+    "https://dev.virtualearth.net/REST/v1/Routes/DistanceMatrix?key=";
+  const locationFrom = await fetch(
+    urlLocation + encodeURIComponent(data.from) + "&key=" + key
+  ).then((res) => res.json());
+  const locationTo = await fetch(
+    urlLocation + encodeURIComponent(data.to) + "&key=" + key
+  ).then((res) => res.json());
+  const fromXY =
+    locationFrom.resourceSets[0].resources[0].geocodePoints[0].coordinates;
+  const toXY =
+    locationTo.resourceSets[0].resources[0].geocodePoints[0].coordinates;
+  const distanceData = await fetch(
+    urlDistance +
+      key +
+      "&origins=" +
+      fromXY[0] +
+      "," +
+      fromXY[0] +
+      "&destinations=" +
+      toXY[0] +
+      "," +
+      toXY[0] +
+      "&travelMode=driving"
+  ).then((res) => res.json());
+
+  const distance =
+    distanceData.resourceSets[0].resources[0].results[0].travelDistance;
+  const cost =
+    parseInt(data.weight) * 100 + 10 * distance + parseInt(data.volume);
+
+  return [Math.round(distance * 100) / 100, Math.round(cost * 100) / 100];
+}
+
+window.addEventListener("load", function () {
+  loaderblock.classList.add("loader__container--hidden");
+});
+
+function showLoader() {
+  loaderblock.classList.remove("loader__container--hidden");
+}
+
+function hideLoader() {
+  loaderblock.classList.add("loader__container--hidden");
+}
+
+async function sendMail(mail, subject, message) {
+  await fetch("http://localhost:3000/send-email", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    mode: "cors",
+    body: JSON.stringify({
+      email: mail,
+      subject: subject,
+      message: message,
+    }),
+  });
+}
+
+function formMessage(data, comment, distance, cost) {
+  return `Доставка клиенту ${data.name} из г. ${data.from} в г. ${data.to}.\nВес груза: ${data.weight} кг\nОбъём груза: ${data.volume} м^3\nСтоимость: ${cost} руб.\nРасстояние: ${distance} км\nНомер телефона клиента: ${data.phone}\nКомментарий: ${comment}`;
+}
+
+async function orderCall() {
+  const from = document.getElementById("modal-mail").value;
+  comment = document.getElementById("modal-comment").value;
+  showLoader();
+  await sendMail(
+    from,
+    "Заявка с сайта pvlogistic.ru",
+    formMessage(data, comment, distance, cost)
+  );
+  hideLoader();
+  modalWindow.style.opacity = "0";
+  successModal.style.zIndex = "0";
+  successModal.style.opacity = "1";
 }
