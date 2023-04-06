@@ -12,7 +12,6 @@
   font-family: "Montserrat", sans-serif;
   font-size: 16px;
   outline: none;
-  overflow-x: hidden;
   scroll-behavior: smooth;
   box-sizing: border-box;
 }
@@ -1082,7 +1081,7 @@ footer {
 
 .loader__container--hidden {
   opacity: 0;
-  z-index: 0;
+  z-index: -1;
 }
 
 #loader {
@@ -1092,7 +1091,11 @@ footer {
   width: 5vw;
   height: 5vw;
   animation: spin 2s linear infinite;
-  z-index: 1000;
+}
+
+.conveer-line {
+  transform-style: preserve-3d;
+  will-change: transform;
 }
 
 @keyframes spin {
@@ -1101,5 +1104,23 @@ footer {
   }
   100% {
     transform: rotate(360deg);
+  }
+}
+
+@keyframes conveerDesktop {
+  0% {
+    transform: translateX(0%) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+  100% {
+    transform: translateX(-100%) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+}
+
+@keyframes conveerMobile {
+  0% {
+    transform: translateX(0%) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+  }
+  100% {
+    transform: translateX(-50%) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
   }
 }

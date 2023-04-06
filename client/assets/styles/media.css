@@ -4,6 +4,9 @@
   .wrapper__form {
     width: 30vw !important;
   }
+  .conveer-line {
+    animation: conveerDesktop 8s linear infinite;
+  }
 }
 
 @media screen and (min-width: 1024px) and (max-width: 1440px) {
@@ -54,8 +57,18 @@
   .about__besides {
     background-size: 45% !important;
   }
-  #modal-tel, #modal-mail {
+  #modal-tel,
+  #modal-mail {
     width: 95% !important;
+  }
+  .conveer-line {
+    animation: conveerDesktop 8s linear infinite;
+  }
+}
+
+@media screen and (min-width: 485px) and (max-width: 1024px) {
+  .conveer-line {
+    animation: conveerDesktop 8s linear infinite;
   }
 }
 
@@ -189,7 +202,10 @@
     width: 100% !important;
     margin-top: 40px;
   }
-  .about__block2__item .item__title, .about__forwhat__item .item__title, .about__besides__text .item__title, .item__title {
+  .about__block2__item .item__title,
+  .about__forwhat__item .item__title,
+  .about__besides__text .item__title,
+  .item__title {
     font-size: 4vw !important;
   }
   .item__block span {
@@ -214,7 +230,8 @@
   .wrapper__footer .wrapper__text .wrapper__title {
     font-size: 5vw !important;
   }
-  #modal-tel, #modal-mail {
+  #modal-tel,
+  #modal-mail {
     width: 95% !important;
   }
   #loader {
@@ -300,20 +317,12 @@
   .wrapper__footer .wrapper__text .wrapper__decription {
     width: 100% !important;
   }
-  #modal-tel, #modal-mail {
+  #modal-tel,
+  #modal-mail {
     width: 100% !important;
   }
   .modal__item2 {
     grid-column-start: auto !important;
-  }
-}
-
-@media screen and (min-width: 320px) and (max-width: 485px) {
-  .wrapper__form {
-    width: 93vw !important;
-  }
-  .wrapper__title {
-    font-size: 10vw !important;
   }
   .header__item {
     min-width: 100px !important;
@@ -326,7 +335,7 @@
     display: grid !important;
     grid-template-columns: 1fr 1fr !important;
     grid-template-rows: 1fr 1fr !important;
-    height: 125px !important;
+    height: 200px !important;
   }
   .grid2 {
     grid-row-start: span 2 !important;
@@ -339,8 +348,21 @@
     grid-row-start: 1 !important;
     grid-column-start: 2 !important;
   }
+  .form__map {
+    width: 100% !important;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 485px) {
+  .wrapper__form {
+    width: 93vw !important;
+  }
+  .wrapper__title {
+    font-size: 10vw !important;
+  }
+
   .mg {
-    margin: 2vh 1vw !important;
+    margin: 0 1vw !important;
   }
   .input-item {
     width: 45% !important;
@@ -392,7 +414,9 @@
   .forwhat__grid .item__block {
     grid-row-start: 2;
   }
-  .about__besides .item__title, .about__block2__item .item__title, .about__forwhat__item .item__title {
+  .about__besides .item__title,
+  .about__block2__item .item__title,
+  .about__forwhat__item .item__title {
     font-size: 7vw !important;
   }
   .about__item span {
@@ -412,6 +436,9 @@
   }
   .wrapper__about {
     margin-top: 70px;
+  }
+  .conveer-line {
+    animation: conveerMobile 8s linear infinite;
   }
 }
 

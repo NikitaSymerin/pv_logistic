@@ -116,19 +116,29 @@ function checkBtns() {
 function closeModal() {
   modal.classList.remove("calc__modal--active");
   successModal.style.zIndex = "-10000";
-  successModal.style.opacity = "0"
+  successModal.style.opacity = "0";
   modal.style.background = "none";
 }
 
 async function openModal(event, dir) {
   event.preventDefault();
 
-  data.name = document.getElementById(dir == 1 ? "form-name" : "form2-name").value;
-  data.phone = document.getElementById(dir == 1 ? "form-tel" : "form2-tel").value;
-  data.from = document.getElementById(dir == 1 ? "form-from" : "form2-from").value;
+  data.name = document.getElementById(
+    dir == 1 ? "form-name" : "form2-name"
+  ).value;
+  data.phone = document.getElementById(
+    dir == 1 ? "form-tel" : "form2-tel"
+  ).value;
+  data.from = document.getElementById(
+    dir == 1 ? "form-from" : "form2-from"
+  ).value;
   data.to = document.getElementById(dir == 1 ? "form-to" : "form2-to").value;
-  data.weight = document.getElementById(dir == 1 ? "form-weight" : "form2-weight").value;
-  data.volume = document.getElementById(dir == 1 ? "form-volume" : "form2-volume").value;
+  data.weight = document.getElementById(
+    dir == 1 ? "form-weight" : "form2-weight"
+  ).value;
+  data.volume = document.getElementById(
+    dir == 1 ? "form-volume" : "form2-volume"
+  ).value;
 
   showLoader();
   try {
