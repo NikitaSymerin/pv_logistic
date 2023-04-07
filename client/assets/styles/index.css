@@ -19,7 +19,7 @@
 .mg {
   margin: 0 8vw;
   height: 100%;
-  overflow-y: hidden;
+  overflow: hidden;
 }
 
 .main {
@@ -571,35 +571,81 @@ form {
 }
 
 #end1 {
-  right: 9%;
-  bottom: 23%;
+  left: 81%;
+  top: 59%;
 }
 
 #end2 {
-  right: 13%;
-  bottom: 38%;
+  left: 77%;
+  top: 44%;
 }
 
 #end3 {
   left: 39%;
-  bottom: 29%;
+  top: 53%;
 }
 
 #object1 {
   left: 15%;
   top: 23%;
+  animation: fly1 3s ease-in-out infinite;
 }
 
 #object2 {
   left: 14%;
   top: 22%;
   transform: rotate(-20deg);
+  animation: fly2 3s ease-in-out infinite;
 }
 
 #object3 {
   left: 12%;
   top: 25%;
   transform: rotate(20deg);
+  animation: fly3 3s ease-in-out infinite;
+}
+
+@keyframes fly1 {
+  0% {
+    left: 15%;
+    top: 23%;
+  }
+  100% {
+    left: 81%;
+    top: 59%;
+  }
+}
+
+@keyframes fly2 {
+  0% {
+    left: 14%;
+    top: 22%;
+    transform: rotate(-20deg);
+  }
+  30% {
+    top: 21%;
+  }
+  100% {
+    left: 77%;
+    top: 44%;
+    transform: rotate(5deg);
+  }
+}
+
+@keyframes fly3 {
+  0% {
+    left: 12%;
+    top: 25%;
+    transform: rotate(20deg);
+  }
+  75% {
+    top: 51%;
+  }
+  100% {
+    left: 39%;
+    top: 53%;
+    transform: rotate(-5deg);
+  }
 }
 
 .about__calculate {
@@ -618,8 +664,7 @@ form {
 }
 
 .about__calculate form .input-item {
-  width: auto;
-  margin: 10px;
+  width: 100% !important;
 }
 
 .input__grid1 {
@@ -1098,6 +1143,34 @@ footer {
   will-change: transform;
 }
 
+.form__map {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+#video {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  z-index: 100000;
+  opacity: 1;
+  transition: 0.5s ease;
+}
+
+#video video {
+  object-fit: cover;
+}
+
+#volume-input,
+#address-input,
+#search-btn {
+  width: 50%;
+  max-width: 100%;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
@@ -1109,18 +1182,22 @@ footer {
 
 @keyframes conveerDesktop {
   0% {
-    transform: translateX(0%) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    transform: translateX(0%) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg)
+      rotateZ(0deg) skew(0deg, 0deg);
   }
   100% {
-    transform: translateX(-100%) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    transform: translateX(-100%) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg)
+      rotateZ(0deg) skew(0deg, 0deg);
   }
 }
 
 @keyframes conveerMobile {
   0% {
-    transform: translateX(0%) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    transform: translateX(0%) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg)
+      rotateZ(0deg) skew(0deg, 0deg);
   }
   100% {
-    transform: translateX(-50%) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg) rotateZ(0deg) skew(0deg, 0deg);
+    transform: translateX(-50%) scale3d(1, 1, 1) rotateX(0deg) rotateY(0deg)
+      rotateZ(0deg) skew(0deg, 0deg);
   }
 }

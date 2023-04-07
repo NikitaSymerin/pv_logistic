@@ -21,6 +21,7 @@
             margin-top: 50px;
         }
     </style>
+    <link href="https://cdn.digitalbutlers.me/projects/fulfillment/production/main.css" rel="stylesheet">
     <script crossorigin=anonymous defer
         src=https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js></script>
     <script type=text/javascript>
@@ -144,6 +145,11 @@
 </head>
 
 <body onload="GetMap()">
+    <!-- <div id="video">
+        <video muted autoplay width="100%" height="100%" id="videoplay">
+            <source src="video/IMG_4943.MP4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+        </video>
+    </div> -->
     <div class="loader__container">
         <div id="loader"></div>
     </div>
@@ -313,21 +319,12 @@
             </div>
             <br>
             <div class="form__map">
-                <label for=volume-input style="color:black;">Введите объем:
-                </label>
+                <input id=volume-input name=volume class="input-item" placeholder="Объём" type=number>
                 <br>
-                <input id=volume-input name=volume class="input-item" placeholder="10" style="width: 100% !important;" type=number>
-                <br>
-                <br>
-                <label for=address-input style="color:black;">Введите адрес:
-                </label>
-                <br>
-                <input id=address-input style="width: 100% !important;" name=volume class="input-item"
-                    placeholder="Москва, Ленинский Проспект 60/1" type=text>
-                <br>
-                <br>
+                <input id=address-input name=volume class="input-item"
+                    placeholder="Адрес" type=text>
                 <button id=search-btn class="form_btn"
-                    style="width: 100%;border:none;color:#fff;text-align:center;text-decoration:none;display:inline-block;margin-bottom:10px;cursor:pointer;">Найти
+                    style="border:none;color:#fff;text-align:center;text-decoration:none;display:inline-block;margin-bottom:10px;cursor:pointer;">Найти
                 </button>
             </div>
             <div class="about__text">

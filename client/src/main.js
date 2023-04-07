@@ -10,6 +10,9 @@ const modalWindow = document.querySelector(".calc__modal__window");
 const loader = document.getElementById("loader");
 const loaderblock = document.querySelector(".loader__container");
 const successModal = document.querySelector(".success__modal__window");
+const videoContainer = document.getElementById("video");
+const video = document.getElementById("videoplay");
+let timeVideo = 0;
 const data = {
   name: "",
   phone: "",
@@ -30,18 +33,6 @@ document.addEventListener(
     closeModal();
   }.bind(this)
 );
-
-let observer = new IntersectionObserver((entries, observer) => {
-  entries.forEach((entry) => {
-    if (entry.isIntersecting) {
-      observer.disconnect();
-      setInterval(animateDelivery, 4500);
-      animateDelivery();
-    }
-  });
-});
-
-observer.observe(object);
 
 const docWidth = document.documentElement.clientWidth;
 let position = 0;
@@ -97,12 +88,6 @@ btnPrev.addEventListener("click", () => {
 });
 
 checkBtns();
-
-function animateDelivery() {
-  setTimeout(firstPlane, 0);
-  setTimeout(secondPlane, 2000);
-  setTimeout(thirdPlane, 4000);
-}
 
 function setPosition() {
   track.style.transform = `translateX(${position}px)`;
@@ -161,86 +146,6 @@ async function openModal(event, dir) {
   modal.style.background = "rgba(0, 0, 0, 0.5)";
 }
 
-function firstPlane() {
-  let speed = document.documentElement.clientWidth / 1000;
-  let angle = (17 * Math.PI) / 180;
-  let x = 0;
-  let y = 0;
-
-  const direction1 = setInterval(() => {
-    let currentX = object.getBoundingClientRect().x;
-    let currentY = object.getBoundingClientRect().y;
-
-    x += speed * Math.cos(angle);
-    y += speed * Math.sin(angle);
-    object.style.transform = `translate(${x}px, ${y}px)`;
-
-    if (currentY >= end1.y - speed * 6 && currentX >= end1.x - speed * 6) {
-      clearInterval(direction1);
-    }
-  }, 1);
-}
-
-function secondPlane() {
-  let speed = document.documentElement.clientWidth * 0.001005;
-  let angle =
-    (-(31 * Math.PI) / 180) * (document.documentElement.clientWidth / 1920);
-  let x = 0;
-  const maxHeight = document.documentElement.clientWidth * 0.0001;
-  const coef = document.documentElement.clientWidth * 0.000297;
-  let y = 0;
-  let time = 0;
-  let rotate = -20;
-  const fly = () => {
-    let currentX = object2.getBoundingClientRect().x;
-    let currentY = object2.getBoundingClientRect().y;
-
-    x += speed * Math.cos(angle);
-    y = -(maxHeight * Math.sin(angle) - coef * 10 * time ** 2);
-    object2.style.transform = `translate(${x}px, ${y}px) rotate(${
-      rotate + time * 3
-    }deg)`;
-
-    if (currentY >= end2.y - speed * 7 && currentX >= end2.x - speed * 7) {
-      clearInterval(flyInterval);
-    }
-    time += 0.01;
-  };
-
-  const flyInterval = setInterval(fly, 1);
-}
-
-function thirdPlane() {
-  let speed = document.documentElement.clientWidth * 0.001005;
-  let angle = (-45 * Math.PI) / 180;
-  let x = 0;
-  const maxHeight = document.documentElement.clientWidth * 0.00001;
-  const coef = document.documentElement.clientWidth * 0.0001;
-  let y = 0;
-  let time = 0;
-  let rotate = 20;
-  let yCoef = document.documentElement.clientWidth * 0.006;
-
-  const fly = () => {
-    let currentX = object3.getBoundingClientRect().x;
-
-    yCoef += document.documentElement.clientWidth * 0.00045;
-    x += speed * Math.cos(angle);
-    y = maxHeight * Math.sin(angle) - coef * time ** 2;
-
-    object3.style.transform = `translate(${x}px, ${y + yCoef}px) rotate(${
-      rotate - time * 5
-    }deg)`;
-
-    if (currentX >= end3.x - speed * 8) {
-      clearInterval(flyInterval);
-    }
-    time += 0.02;
-  };
-
-  const flyInterval = setInterval(fly, 1);
-}
-
 async function getData(data) {
   const key =
     "AuhLPv41yqdhHyrTczcWhRj1Ez4w64yryuGGaA7aMBu9X1hqpzjhsgaCKXzAw4b1";
@@ -279,8 +184,16 @@ async function getData(data) {
   return [Math.round(distance * 100) / 100, Math.round(cost * 100) / 100];
 }
 
+video.addEventListener("loadedmetadata", function () {
+  timeVideo = video.duration;
+});
+
 window.addEventListener("load", function () {
   loaderblock.classList.add("loader__container--hidden");
+  setTimeout(() => {
+    videoContainer.style.opacity = "0";
+    videoContainer.style.zIndex = "-1";
+  }, timeVideo * 1000 - 2000);
 });
 
 function showLoader() {
