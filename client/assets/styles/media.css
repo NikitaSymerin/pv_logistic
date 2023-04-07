@@ -240,6 +240,9 @@
     border: 2vw solid #f3f3f3 !important;
     border-top: 2vw solid #ff0000 !important;
   }
+  .text_con .title__con {
+    font-size: 7vw !important;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 640px) {

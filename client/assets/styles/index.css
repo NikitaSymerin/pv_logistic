@@ -1171,6 +1171,16 @@ footer {
   max-width: 100%;
 }
 
+.text_con {
+  justify-content: center;
+  max-width: max-content !important;
+  text-align: center;
+}
+
+.mg .title__con {
+  font-size: 4vw;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
