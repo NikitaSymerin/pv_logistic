@@ -1181,6 +1181,23 @@ footer {
   font-size: 4vw;
 }
 
+.mg .desc__con {
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.modal__subscribe {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.modal__subscribe span {
+  color: rgba(255, 255, 255, 0.8);
+  padding-left: 10px;
+}
+
 @keyframes spin {
   0% {
     transform: rotate(0deg);
