@@ -1,11 +1,14 @@
 const mysql = require("mysql");
 const format = require("../utils/formatDate");
+const dotenv = require("dotenv");
+
+dotenv.config();
 
 const db_config = {
-  host: "localhost",
-  user: "root",
-  password: "root",
-  database: "pvlogistic",
+  host: process.env.DB_HOST,
+  user: process.env.DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME,
 };
 let connection;
 
@@ -29,11 +32,15 @@ function handleDisconnect() {
   });
 }
 
-const postRequest = (subject, message, email) => {
+const postRequest = (data) => {
   connection.query(
-    `INSERT INTO requests (email, title, text, time) VALUES ("${email}", "${subject}", "${message}", "${format.formatDate(
-      new Date()
-    )}")`,
+    `INSERT INTO requests (email, name, from_city, to_city, weight, volume, cost, distance, phone, comment, time) VALUES ("${
+      data.mail
+    }", "${data.name}", "${data.from}", "${data.to}", "${data.weight}", "${
+      data.volume
+    }", "${data.cost}", "${data.distance}", "${data.phone}", "${
+      data.comment
+    }", "${format.formatDate(new Date())}")`,
     function (error) {
       if (error) {
         console.log("Возникла ошибка: ", error);
@@ -43,12 +50,12 @@ const postRequest = (subject, message, email) => {
   );
 };
 
-const postSub = async (email, data) => {
-  const dataSub = await checkUnique(email);
+const postSub = async (data) => {
+  const dataSub = await checkUnique(data.mail);
   const isUnique = dataSub.length == 0;
   if (isUnique) {
     connection.query(
-      `INSERT INTO subs (email, name, time) VALUES ("${email}", "${
+      `INSERT INTO subs (email, name, time) VALUES ("${data.mail}", "${
         data.name
       }", "${format.formatDate(new Date())}")`,
       function (error) {
@@ -70,7 +77,7 @@ const checkUnique = async (email) => {
       (error, results) => {
         if (error) {
           console.log("Возникла ошибка: ", error);
-          rej(err);
+          rej(error);
         }
         console.log("Проверка на уникальность успешно пройдена.");
         res(results);
@@ -79,8 +86,56 @@ const checkUnique = async (email) => {
   });
 };
 
+const getRequests = async () => {
+  return new Promise((res, rej) => {
+    connection.query(`SELECT * FROM requests`, (err, results) => {
+      if (err) {
+        console.log("Ошибка во время получения заявок.");
+        rej(err);
+      }
+      console.log("Заявки успешно получены.");
+      res(results);
+    });
+  });
+};
+
+const getSubs = async () => {
+  return new Promise((res, rej) => {
+    connection.query(`SELECT * FROM subs`, (err, results) => {
+      if (err) {
+        console.log("Ошибка во время получения заявок на рассылку.");
+        rej(err);
+      }
+      console.log("Заявки на рассылку успешно получены.");
+      res(results);
+    });
+  });
+};
+
+const deleteSubById = async (id) => {
+  connection.query(`DELETE FROM subs WHERE id = "${id}"`, (err) => {
+    if (err) {
+      console.log("Ошибка удаления подписчика.");
+    }
+    console.log("Удаление подписчика успешно завершено.");
+  })
+}
+
+const deleteRequestById = async (id) => {
+  connection.query(`DELETE FROM requests WHERE id = "${id}"`, (err) => {
+    if (err) {
+      console.log("Ошибка удаления зявки.");
+    }
+    console.log("Удаление заявки успешно завершено.");
+  })
+}
+
 module.exports = {
   postRequest,
   postSub,
   handleDisconnect,
+  getRequests,
+  getSubs,
+  deleteSubById,
+  deleteRequestById,
 };

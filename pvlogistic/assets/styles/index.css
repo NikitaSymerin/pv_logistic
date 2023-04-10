@@ -863,7 +863,7 @@ footer {
   opacity: 0;
 }
 
-.success__modal__window {
+.success__modal__window, .sub__modal__window {
   z-index: -10000;
   position: absolute;
   padding: 35px;
@@ -879,6 +879,14 @@ footer {
   transition: transform 0.2s ease 0s, opacity 0.2s ease 0s;
   transform: scale(0.9);
   opacity: 0;
+}
+
+.sub__modal__window {
+  text-align: center;
+}
+
+.modal__sub__inputs .input-item {
+  width: 95% !important;
 }
 
 .calc__modal--active {
@@ -939,11 +947,22 @@ footer {
   grid-template-rows: 1fr 1fr;
 }
 
-.modal__inputs .input-item {
+.modal__sub__inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.modal__inputs .input-item, .modal__sub__inputs .input-item {
   width: 95%;
   margin: 5px 0;
   z-index: 100;
 }
+
+.modal__sub__inputs {
+  margin-top: 15px;
+}
+
 .modal__item2 {
   grid-column-start: 2 span;
   width: 97.5% !important;
@@ -1152,7 +1171,8 @@ footer {
 }
 
 #video {
-  position: fixed;
+  top: 0;
+  position: absolute;
   width: 100vw;
   height: 100vh;
   z-index: 100000;
@@ -1196,6 +1216,73 @@ footer {
 .modal__subscribe span {
   color: rgba(255, 255, 255, 0.8);
   padding-left: 10px;
+}
+
+.popup__sub {
+  opacity: 1;
+  position: fixed;
+  width: 320px;
+  padding: 15px;
+  background: #000;
+  z-index: 10000;
+  text-align: center;
+  transition: 0.2s ease;
+  border-radius: 20px;
+  left: 30vw;
+  top: -100vw;
+}
+
+.showPopup {
+  animation: showPopup 2s forwards;
+}
+
+.popup__title {
+  font-size: 12px;
+  font-family: "Actay Wide";
+  font-weight: 800;
+}
+
+.popup__acc,
+.popup__dec {
+  padding: 5px 10px;
+  font-weight: 500;
+  border-radius: 20px;
+  font-size: 12px;
+  font-family: "Montserrat";
+  transition: 0.2s ease;
+}
+
+.popup__acc {
+  background-color: #ff0000;
+  border: #ff0000 1px solid;
+}
+
+.popup__acc:hover {
+  background-color: #000;
+}
+
+.popup__btns {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+.popup__dec {
+  background-color: #000;
+  border: #ff0000 1px solid;
+}
+
+.popup__dec:hover {
+  background-color: #ff0000;
+}
+
+@keyframes showPopup {
+  0% {
+    top: -6vw;
+  }
+  100% {
+    top: 2vw;
+  }
 }
 
 @keyframes spin {

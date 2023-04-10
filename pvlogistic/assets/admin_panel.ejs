@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <link rel="shortcut icon" href="./img/favicon.svg" type="image/svg">
+    <title>Админ — панель</title>
+</head>
+
+<body>
+    <div class="m-3">
+        <button onclick="showRequests()" class="btn btn-primary">Заявки</button>
+        <button onclick="showSubs()" class="btn btn-primary">Заявки на рассылку</button>
+    </div>
+    <div id="subs" class="">
+        <% subs.forEach(item=> { %>
+            <div class="card m-3">
+                <div class="card-header">
+                    Заявка на рассылку №<%= item.id %> от <%= new Date(item.time).toLocaleString(); %>
+                </div>
+                <div class="card-body">
+                    <p id="<%= item.id %>" class="card-text">Имя: <%= item.name %><br>Почта: <%= item.email %>
+                    </p>
+                    <button data-id="<%= item.id %>" onclick="copy(this)" class="btn btn-primary">Копировать</button>
+                    <button data-id="<%= item.id %>" onclick="deleteSub(this)" class="btn btn-danger">Удалить</button>
+                </div>
+            </div>
+            <% }); %>
+    </div>
+    <div id="requests" class="d-none">
+        <% requests.forEach(item=> { %>
+            <div class="card m-3">
+                <div class="card-header">
+                    Заявка<%= item.title %> №<%= item.id %> от <%= new Date(item.time).toLocaleString(); %>
+                </div>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <%= item.name %>
+                    </h5>
+                    <p id="<%= item.id %>" class="card-text">Электронная почта: <%= item.email %> <br> Откуда: <%=
+                                item.from_city %> <br>
+                                Куда: <%= item.to_city %> <br> Вес: <%= item.weight %> кг <br> Объём: <%= item.volume %>
+                                            м<sup>3</sup> <br> Цена: <%= item.cost %> руб. <br> Дистанция: <%=
+                                                    item.distance %> км <br> Телефон: <%= item.phone %> <br> Оставленный
+                                                        комментарий: <%= item.comment %>
+                    </p>
+                    <button data-id="<%= item.id %>" onclick="copy(this)" class="btn btn-primary">Копировать</button>
+                    <button data-id="<%= item.id %>" onclick="deleteRequest(this)"
+                        class="btn btn-danger">Удалить</button>
+                </div>
+            </div>
+            <% }); %>
+    </div>
+
+    <script>
+        if (!localStorage.getItem("pvlogistic_admin_token")) {
+            window.location.href = "./admin";
+        }
+
+        const requests = document.getElementById("requests");
+        const subs = document.getElementById("subs");
+
+        function showSubs() {
+            requests.classList.add("d-none");
+            subs.classList.remove("d-none");
+        }
+
+        function showRequests() {
+            subs.classList.add("d-none");
+            requests.classList.remove("d-none");
+        }
+        function deleteSub(el) {
+            try {
+                fetch("./panel/deletesub", {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    mode: "cors",
+                    body: JSON.stringify({
+                        id: el.dataset.id,
+                    }),
+                })
+            } catch (err) {
+                console.log("Ошибка: ", err);
+            }
+            location.reload();
+        }
+        function deleteRequest(el) {
+            try {
+                fetch("./panel/deleterequest", {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    mode: "cors",
+                    body: JSON.stringify({
+                        id: el.dataset.id,
+                    }),
+                })
+            } catch (err) {
+                console.log("Ошибка: ", err);
+            }
+            location.reload();
+        }
+        function copy(el) {
+            const id = el.dataset.id;
+            selectText(id)
+        }
+        function selectText(containerid) {
+            if (document.selection) { 
+                var range = document.body.createTextRange();
+                range.moveToElementText(document.getElementById(containerid));
+                range.select();
+            } else if (window.getSelection) {
+                var range = document.createRange();
+                range.selectNode(document.getElementById(containerid));
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+            }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

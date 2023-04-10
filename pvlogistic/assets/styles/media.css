@@ -80,6 +80,7 @@
         rgba(0, 0, 0, 0.5)
       ),
       url(../img/background.png) !important;
+    height: 150vh !important;
   }
   .wrapper__about {
     flex-direction: row !important;
