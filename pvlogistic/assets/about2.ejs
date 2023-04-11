@@ -11,13 +11,16 @@
     <link href="https://cdn.digitalbutlers.me/projects/fulfillment/production/main.css" rel="stylesheet">
     <link href="https://cdn.digitalbutlers.me/projects/fulfillment/production/components/swiper-reviews/index.css"
         rel="stylesheet">
-    <title>ПВ ЛОГИСТИК - О НАС</title>
+    <title>ПВ ЛОГИСТИК - ГРУЗОПЕРЕВОЗКИ</title>
 </head>
 
 <body>
+    <%- include("./components/loader") %>
+    <%- include("./components/menu") %>
+
     <section class="main about__main2">
         <div class="mg">
-            <%- include("./components/header.ejs") %>
+            <%- include("./components/header") %>
                 <div class="wrapper wrapper__about2">
                     <div class="wrapper__text">
                         <span class="wrapper__title">ГРУЗОПЕРЕВОЗКИ ПО ВСЕЙ РОССИИ</span>
@@ -104,7 +107,12 @@
         </div>
     </main>
 
-    <%- include("./components/footer.ejs") %>
+    <%- include("./components/footer") %>
+    <%- include("./components/modal") %>
+
+    <script defer src="./src/main.js"></script>  
+    <script defer src="./src/menu.js"></script>
+    <script defer src="./src/modal.js"></script>
 </body>
 
 </html>

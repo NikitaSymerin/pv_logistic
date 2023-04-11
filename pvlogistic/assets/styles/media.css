@@ -453,6 +453,9 @@
   .conveer-line {
     animation: conveerMobile 8s linear infinite;
   }
+  .wrapper__about2 .wrapper__text .wrapper__title {
+    font-size: 9vw !important;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 400px) {
@@ -500,10 +503,8 @@
 @media screen and (min-width: 320px) and (max-width: 340px) {
   header {
     height: 150px !important;
-  }
-  .grid1 {
-    grid-row-start: span 1 !important;
-    grid-column-start: span 2 !important;
+    grid-template-columns: auto !important;
+    grid-template-rows: auto !important;
   }
   .grid2 {
     grid-row-start: 2 !important;

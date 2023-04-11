@@ -70,11 +70,47 @@ const postSub = async (data) => {
   }
 };
 
+const postCall = async (data) => {
+  const dataCall = await checkUniquePhone(data.phone);
+  const isUnique = dataCall.length == 0;
+  if (isUnique) {
+    connection.query(
+      `INSERT INTO calls (phone, name, time) VALUES ("${data.phone}", "${
+        data.name
+      }", "${format.formatDate(new Date())}")`,
+      function (error) {
+        if (error) {
+          console.log("Возникла ошибка: ", error);
+        }
+        console.log("Заявка на звонок добавлена в бд.");
+      }
+    );
+  } else {
+    console.log("Пользователь уже имеет заявку на звонок");
+  }
+};
+
+const checkUniquePhone = async (phone) => {
+  return new Promise((res, rej) => {
+    connection.query(
+      `SELECT * FROM calls WHERE phone = "${phone}"`,
+      (error, results) => {
+        if (error) {
+          console.log("Возникла ошибка: ", error);
+          rej(error);
+        }
+        console.log("Проверка на уникальность телефона успешно пройдена.");
+        res(results);
+      }
+    );
+  });
+};
+
 const checkUnique = async (email) => {
   return new Promise((res, rej) => {
     connection.query(
       `SELECT * FROM subs WHERE email = "${email}"`,
-      (error, results) => {
+      function (error, results) {
         if (error) {
           console.log("Возникла ошибка: ", error);
           rej(error);
@@ -112,6 +148,19 @@ const getSubs = async () => {
   });
 };
 
+const getCalls = async () => {
+  return new Promise((res, rej) => {
+    connection.query(`SELECT * FROM calls`, (err, results) => {
+      if (err) {
+        console.log("Ошибка во время получения заявок на звонок.");
+        rej(err);
+      }
+      console.log("Заявки на звонок успешно получены.");
+      res(results);
+    });
+  });
+};
+
 const deleteSubById = async (id) => {
   connection.query(`DELETE FROM subs WHERE id = "${id}"`, (err) => {
     if (err) {
@@ -130,6 +179,15 @@ const deleteRequestById = async (id) => {
   })
 }
 
+const deleteCallById = async (id) => {
+  connection.query(`DELETE FROM calls WHERE id = "${id}"`, (err) => {
+    if (err) {
+      console.log("Ошибка удаления зявки на звонок.");
+    }
+    console.log("Удаление заявки на звонок успешно завершено.");
+  })
+}
+
 module.exports = {
   postRequest,
   postSub,
@@ -138,4 +196,7 @@ module.exports = {
   getSubs,
   deleteSubById,
   deleteRequestById,
+  postCall,
+  deleteCallById,
+  getCalls,
 };

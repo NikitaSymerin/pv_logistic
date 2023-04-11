@@ -15,6 +15,22 @@
     <div class="m-3">
         <button onclick="showRequests()" class="btn btn-primary">Заявки</button>
         <button onclick="showSubs()" class="btn btn-primary">Заявки на рассылку</button>
+        <button onclick="showCalls()" class="btn btn-primary">Заявки на звонок</button>
+    </div>
+    <div id="calls" class="d-none">
+        <% calls.forEach(item=> { %>
+            <div class="card m-3">
+                <div class="card-header">
+                    Заявка на звонок №<%= item.id %> от <%= new Date(item.time).toLocaleString(); %>
+                </div>
+                <div class="card-body">
+                    <p id="<%= item.id %>" class="card-text">Имя: <%= item.name %><br>Телефон: <%= item.phone %>
+                    </p>
+                    <button data-id="<%= item.id %>" onclick="copy(this)" class="btn btn-primary">Копировать</button>
+                    <button data-id="<%= item.id %>" onclick="deleteCall(this)" class="btn btn-danger">Удалить</button>
+                </div>
+            </div>
+            <% }); %>
     </div>
     <div id="subs" class="">
         <% subs.forEach(item=> { %>
@@ -63,16 +79,44 @@
 
         const requests = document.getElementById("requests");
         const subs = document.getElementById("subs");
+        const calls = document.getElementById("calls");
 
         function showSubs() {
             requests.classList.add("d-none");
+            calls.classList.add("d-none");
             subs.classList.remove("d-none");
         }
 
         function showRequests() {
             subs.classList.add("d-none");
+            calls.classList.add("d-none");
             requests.classList.remove("d-none");
         }
+
+        function showCalls() {
+            subs.classList.add("d-none");
+            requests.classList.add("d-none");
+            calls.classList.remove("d-none");
+        }
+
+        function deleteCall(el) {
+            try {
+                fetch("./panel/deletecall", {
+                    method: "DELETE",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    mode: "cors",
+                    body: JSON.stringify({
+                        id: el.dataset.id,
+                    }),
+                })
+            } catch (err) {
+                console.log("Ошибка: ", err);
+            }
+            location.reload();
+        }
+
         function deleteSub(el) {
             try {
                 fetch("./panel/deletesub", {

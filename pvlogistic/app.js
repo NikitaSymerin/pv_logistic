@@ -49,7 +49,8 @@ app.get("/admin/panel", express.json(), async (req, res) => {
   db.handleDisconnect();
   const requests = await db.getRequests();
   const subs = await db.getSubs();
-  res.render("../assets/admin_panel", { requests: JSON.parse(JSON.stringify(requests)), subs: JSON.parse(JSON.stringify(subs)) });
+  const calls = await db.getCalls();
+  res.render("../assets/admin_panel", { requests: JSON.parse(JSON.stringify(requests)), subs: JSON.parse(JSON.stringify(subs)), calls: JSON.parse(JSON.stringify(calls)) });
 });
 
 app.post("/admin/auth", (req, res) => {
@@ -122,6 +123,29 @@ app.post("/postsub", (req, res) => {
     });
   }
 });
+
+app.post("/postcall", (req, res) => {
+  const { data } = req.body;
+
+  db.handleDisconnect();
+  try {
+    db.postCall(data);
+    res.status(200).json({
+      message: "Спасибо за заказ звонка!",
+    });
+  } catch {
+    res.status(500).json({
+      message: "Произошла ошибка",
+    });
+  }
+});
+
+app.delete("/admin/panel/deletecall", (req, res) => {
+  const { id } = req.body;
+
+  db.handleDisconnect();
+  db.deleteCallById(id);
+})
 
 app.delete("/admin/panel/deletesub", (req, res) => {
   const { id } = req.body;

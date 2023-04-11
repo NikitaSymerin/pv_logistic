@@ -1,0 +1,61 @@
+<div class="calc__modal" id="modal">
+    <div class="calc__modal__wrap">
+        <div class="calc__modal__window bordered">
+            <span class="modal__title">Стоимость доставки:</span>
+            <div class="modal__text">
+                <span class="modal__text__grid">Откуда: <span id="modal-from"></span></span>
+                <span class="modal__text__grid">Вес груза: <span id="modal-weight"></span> кг</span>
+                <span class="modal__text__grid">Куда: <span id="modal-to"></span></span>
+                <span class="modal__text__grid">Объем груза: <span id="modal-volume"></span> м3</span>
+                <span class="modal__text__grid">Стоимость: <span id="modal-cost"></span> руб.</span>
+                <span class="modal__text__grid">Расстояние: <span id="modal-dist"></span> км</span>
+            </div>
+            <div class="modal__inputs">
+                <input id="modal-mail" type="email" required class="input-item"
+                    placeholder="Адрес электронной почты">
+                <input id="modal-tel" type="tel" required class="input-item" placeholder="Номер телефона">
+                <input id="modal-comment" type="text" required class="input-item modal__item2"
+                    placeholder="Комментарий">
+            </div>
+            <div class="modal__subscribe">
+                <input type="checkbox" id="isSub" checked>
+                <span>Подписаться на рассылку</span>
+            </div>
+            <div class="modal__btn__container">
+                <button onclick="postRequest()" class="form_btn bordered modal__btn">Заказать звонок</button>
+            </div>
+        </div>
+
+        <div class="success__modal__window bordered">
+            <span class="modal__title">Ваша заявка успешно отправлена!</span>
+            <span class="success__text">Наш менеджер свяжется с Вами в ближайшее время.</span>
+            <div class="modal__btn__container">
+                <button onclick="closeModal()" class="form_btn bordered modal__btn">Готово</button>
+            </div>
+        </div>
+
+        <div class="order__modal__window bordered">
+            <span class="modal__title">Заказ звонка от нашей компании</span>
+            <div class="modal__sub__inputs">
+                <input id="modal-order-name" type="text" required class="input-item" placeholder="Имя">
+                <input id="modal-order-phone" type="phone" required class="input-item"
+                    placeholder="Телефон">
+            </div>
+            <div class="modal__btn__container">
+                <button onclick="orderCall()" class="form_btn bordered modal__btn">Заказать звонок</button>
+            </div>
+        </div>
+
+        <div class="sub__modal__window bordered">
+            <span class="modal__title">Подписаться на рассылку от нашей компании</span>
+            <div class="modal__sub__inputs">
+                <input id="modal-sub-name" type="text" required class="input-item" placeholder="Имя">
+                <input id="modal-sub-mail" type="email" required class="input-item"
+                    placeholder="Электронная почта">
+            </div>
+            <div class="modal__btn__container">
+                <button onclick="subscribe()" class="form_btn bordered modal__btn">Готово</button>
+            </div>
+        </div>
+    </div>
+</div>

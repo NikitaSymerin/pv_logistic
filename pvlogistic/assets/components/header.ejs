@@ -2,12 +2,18 @@
     <div class="header__item grid1">
         <img src="img/logo.svg" class="header__item__logo">
     </div>
-    <div class="header__item__links grid2">
+    <div id="menu" class="header__item d-none"><img src="img/menu.svg"></div>
+    <div id="links" class="header__item__links grid2 d-none">
         <a class="header__item" href="mailto:pvlogistic@inbox.ru">pvlogistic@inbox.ru</a>
         <a class="header__item" href="tel:+79037959539">+7 (903) 795-95-39</a>
         <a class="header__item" href="tel:+79037959524">+7 (903) 795-95-24</a>
     </div>
+    <div id="links2" class="header__item__links grid2">
+        <a id="link1" class="header__item" href="./">Маркетплейсы</a>
+        <a id="link2" class="header__item" href="./about">Фуллфилмент</a>
+        <a id="link3" class="header__item" href="./about2">Грузоперевозки</a>
+    </div>
     <div class="header__item grid3">
-        <a href="#target"><button class="header__item__button bordered">ЗАКАЗАТЬ ЗВОНОК</button></a>
+        <button onclick="orderPhoneCall()" class="header__item__button bordered">ЗАКАЗАТЬ ЗВОНОК</button>
     </div>
 </header>

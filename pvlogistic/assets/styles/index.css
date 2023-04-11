@@ -86,14 +86,22 @@ button {
   background: rgba(255, 255, 255, 0.8);
 }
 
+.bordered__menu::before {
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+}
+
 .bordered::before {
+  border-radius: 20px;
+}
+
+.bordered::before, .bordered__menu::before {
   content: "";
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  border-radius: 20px;
   border: 1px solid transparent;
   background: linear-gradient(
       to right,
@@ -157,6 +165,7 @@ button {
 .wrapper__about2 {
   display: flex;
   flex-flow: column;
+  margin-top: 50px;
 }
 
 form {
@@ -215,7 +224,7 @@ form {
 
 .transition {
   background: linear-gradient(to top, white 2.5%, rgba(255, 255, 255, 0) 95%);
-  margin-top: -9.9vh;
+  margin-top: -9.8vh;
   height: 10vh;
 }
 
@@ -878,7 +887,7 @@ footer {
   opacity: 0;
 }
 
-.success__modal__window, .sub__modal__window {
+.success__modal__window, .sub__modal__window, .order__modal__window {
   z-index: -10000;
   position: absolute;
   padding: 35px;
@@ -1033,6 +1042,10 @@ footer {
   font-size: 36px !important;
   font-family: "Actay Wide";
   margin: 0 !important;
+}
+
+.d-none {
+  display: none !important;
 }
 
 .block__img1 {
@@ -1315,9 +1328,79 @@ footer {
   background-color: #ff0000;
 }
 
+.menu__window {
+  position: fixed;
+  z-index: 100000;
+  border-bottom-left-radius: 20px;
+  border-top-left-radius: 20px;
+  width: 90vw;
+  top: 5vw;
+  right: -100vw;
+  backdrop-filter: blur(20px);
+  display: flex;
+  flex-flow: column;
+  background-color: rgba(19, 23, 27, 0.5);
+  padding: 20px;
+}
+
+.showMenu {
+  animation: showMenu 1s forwards;
+}
+
+#close, #menu {
+  cursor: pointer;
+}
+
+@keyframes showMenu {
+  0% {
+    right: -100vw;
+  }
+  100% {
+    right: 0;
+  }
+}
+
+.menu__window * {
+  padding-top: 5px;
+}
+
+.menu__window a {
+  font-family: 'Actay Wide';
+  font-size: 28px;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
+
+.marked__link {
+  color: #ff0000;
+}
+
+.menu__window a:hover {
+  color: #ff0000;
+}
+
+.menu__title {
+  display: flex;
+  align-items: center;
+}
+
+.menu__title span {
+  padding-left: 5px;
+}
+
+.menu__logo {
+  width: 190px;
+}
+
+.menu__window__head {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+}
+
 @keyframes showPopup {
   0% {
-    top: -6vw;
+    top: -100vw;
   }
   100% {
     top: 2vw;
