@@ -26,6 +26,9 @@
   .wrapper__title {
     font-size: 50px !important;
   }
+  .wrapper__footer2 .wrapper__title {
+    font-size: 32px !important;
+  }
   .wrapper__decription {
     font-size: 18px !important;
     padding-top: 10px !important;
@@ -73,6 +76,9 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 1024px) {
+  body .about__main2, body .about__main, body .footer__back {
+    height: 110vh !important;
+  }
   .main {
     background-image: linear-gradient(
         to right,
@@ -87,6 +93,9 @@
   }
   .wrapper__about .wrapper__title {
     font-size: 7.3vw !important;
+  }
+  .wrapper__footer2 .wrapper__title {
+    font-size: 32px !important;
   }
   .wrapper__about .wrapper__decription {
     font-size: 4.5vw !important;

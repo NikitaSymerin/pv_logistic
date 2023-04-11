@@ -37,6 +37,10 @@ app.get("/about", express.json(), (req, res) => {
   res.render("../assets/about");
 });
 
+app.get("/about2", express.json(), (req, res) => {
+  res.render("../assets/about2");
+});
+
 app.get("/admin", express.json(), (req, res) => {
   res.render("../assets/admin");
 });

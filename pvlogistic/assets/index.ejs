@@ -49,19 +49,7 @@
             </video>
         </div>
         <div class="mg">
-            <header>
-                <div class="header__item grid1">
-                    <img src="img/logo.svg" class="header__item__logo">
-                </div>
-                <div class="header__item__links grid2">
-                    <a class="header__item" href="mailto:pvlogistic@inbox.ru">pvlogistic@inbox.ru</a>
-                    <a class="header__item" href="tel:+79037959539">+7 (903) 795-95-39</a>
-                    <a class="header__item" href="tel:+79037959524">+7 (903) 795-95-24</a>
-                </div>
-                <div class="header__item grid3">
-                    <a href="#target"><button class="header__item__button bordered">ЗАКАЗАТЬ ЗВОНОК</button></a>
-                </div>
-            </header>
+            <%- include("./components/header.ejs") %>
             <div class="wrapper mb">
                 <div class="wrapper__text">
                     <span class="wrapper__title">ДОСТАВКА ГРУЗОВ ДО МАРКЕТПЛЕЙСА</span>
@@ -275,7 +263,7 @@
                     <span class="coop__title">ПЕРЕВОЗКИ И УПРАВЛЕНИЕ СОРТИРОВОЧНЫМИ ЦЕНТРАМИ</span>
                     <span class="coop_desc">Постоянным партнерам оказываем складские услуги и готовы по запросу
                         организовать складскую деятельность в любом регионе России и Казахстана</span>
-                    <button class="form_btn bordered btn_white">Выбрать</button>
+                    <a href="./about2"><button class="form_btn bordered btn_white">Выбрать</button></a>
                 </div>
             </div>
             <div class="about__text">
@@ -440,30 +428,7 @@
         </div>
     </main>
 
-    <footer>
-        <div class="mg">
-            <div class="footer__logo"><img src="img/logo.svg"></div>
-            <div class="footer__container">
-                <div class="footer__text">
-                    <div class="footer__text__contact">
-                        <span class="footer__title">Контактная информация:</span>
-                        <span>+7 (903) 795-95-39 <br> +7 (903) 795-95-24<br><br>pvlogistic@inbox.ru</span>
-                        <button class="header__item__button bordered">Заказать звонок</button>
-                    </div>
-                    <div class="footer__text__addition">
-                        <span class="footer__title">Адрес:</span>
-                        <span>Московская ул., 15, Климовск, Московская обл., 142184</span>
-                        <span class="footer__title">Время работы:</span>
-                        <span>Ежедневно с 10:00 до 17:00<br><br>Прием заявок ежедневно и круглосуточно</span>
-                    </div>
-                </div>
-                <iframe class="footer__map"
-                    src="https://yandex.ru/map-widget/v1/?um=constructor%3Aaeef82e10a843be0c59d65be54c2cd35e7d7aec4239fa40b0bfd1ce205d66438&amp;source=constructor"
-                    frameborder="0">
-                </iframe>
-            </div>
-        </div>
-    </footer>
+    <%- include("./components/footer.ejs") %>
     <div class="calc__modal" id="modal">
         <div class="calc__modal__wrap">
             <div class="calc__modal__window bordered">
@@ -513,6 +478,7 @@
         </div>
     </div>
 
+    <script src="//widget.cleversite.ru/widget/123070/189886/"></script>
     <script defer src="./src/main.js"></script>
     <script defer src="./src/bing.js"></script>
 </body>
