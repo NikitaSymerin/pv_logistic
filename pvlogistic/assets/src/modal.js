@@ -36,7 +36,7 @@ function orderPhoneCall() {
   modal.classList.add("calc__modal--active");
   modal.style.background = "rgba(0, 0, 0, 0.5)";
 
-  orderModal.style.zIndex = "0";
+  orderModal.style.zIndex = "10000";
   orderModal.style.opacity = "1";
 }
 
@@ -49,7 +49,7 @@ function acceptSub() {
   modalWindow.style.opacity = "0";
   modal.classList.add("calc__modal--active");
   modal.style.background = "rgba(0, 0, 0, 0.5)";
-  subModal.style.zIndex = "0";
+  subModal.style.zIndex = "10000";
   subModal.style.opacity = "1";
 }
 

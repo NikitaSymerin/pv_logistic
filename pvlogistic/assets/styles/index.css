@@ -433,6 +433,7 @@ form {
   background-image: url("../img/block2_btn.png");
   background-repeat: no-repeat;
   background-position: top right;
+  justify-content: space-between;
 }
 
 .coop__item {
@@ -878,13 +879,16 @@ footer {
   flex-shrink: 0;
   flex-grow: 0;
   background: rgba(19, 23, 27, 0.5);
-  backdrop-filter: blur(20px);
   width: 750px;
   max-width: 90%;
   overflow: visible;
   transition: transform 0.2s ease 0s, opacity 0.2s ease 0s;
   transform: scale(0.9);
   opacity: 0;
+}
+
+.blur__modal {
+  backdrop-filter: blur(20px);
 }
 
 .success__modal__window, .sub__modal__window, .order__modal__window {
@@ -896,7 +900,6 @@ footer {
   flex-shrink: 0;
   flex-grow: 0;
   background: rgba(19, 23, 27, 0.5);
-  backdrop-filter: blur(20px);
   width: 750px;
   max-width: 90%;
   overflow: visible;
@@ -1058,6 +1061,7 @@ footer {
 
 .block__img3 {
   background-image: url("../img/block_item3.png");
+  background-position: center;
 }
 
 .block__img4 {
@@ -1066,6 +1070,15 @@ footer {
 
 .block__img5 {
   background-image: url("../img/block_item5.png");
+}
+
+.block__img6 {
+  background-image: url("../img/block_item6.png") !important;
+}
+
+.block__img7 {
+  background-image: url("../img/gif.gif");
+  background-position: center;
 }
 
 .about__block2__item {

@@ -55,4 +55,8 @@ function checkBtns() {
   btnNext.disabled = position <= -(itemsCount - slidesToShow) * itemWidth;
 }
 
+function setPosition() {
+  track.style.transform = `translateX(${position}px)`;
+}
+
 checkBtns();
