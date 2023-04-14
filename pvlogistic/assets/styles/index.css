@@ -95,7 +95,8 @@ button {
   border-radius: 20px;
 }
 
-.bordered::before, .bordered__menu::before {
+.bordered::before,
+.bordered__menu::before {
   content: "";
   position: absolute;
   top: 0;
@@ -861,6 +862,10 @@ footer {
   padding: 30px 0;
 }
 
+.calc__modal::-webkit-scrollbar {
+  width: 0;
+}
+
 .calc__modal__wrap {
   flex-shrink: 0;
   flex-grow: 0;
@@ -888,10 +893,13 @@ footer {
 }
 
 .blur__modal {
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(5px);
 }
 
-.success__modal__window, .sub__modal__window, .order__modal__window {
+.success__modal__window,
+.sub__modal__window,
+.order__modal__window,
+.fullcalc__modal__window {
   z-index: -10000;
   position: absolute;
   padding: 35px;
@@ -906,6 +914,23 @@ footer {
   transition: transform 0.2s ease 0s, opacity 0.2s ease 0s;
   transform: scale(0.9);
   opacity: 0;
+}
+
+.fullcalc__modal__window {
+  top: -12%;
+}
+
+.fullcalc__modal__window form input[type="radio"], .fullcalc__modal__window form input[type="checkbox"] {
+  margin-right: 5px;
+}
+
+.fullcalc__modal__window form input[type="text"] {
+  width: 100%;
+  height: 45px;
+}
+
+.fullcalc__modal__window form {
+  padding: 0;
 }
 
 .sub__modal__window {
@@ -980,7 +1005,8 @@ footer {
   grid-template-rows: 1fr;
 }
 
-.modal__inputs .input-item, .modal__sub__inputs .input-item {
+.modal__inputs .input-item,
+.modal__sub__inputs .input-item {
   width: 95%;
   margin: 5px 0;
   z-index: 100;
@@ -1146,7 +1172,8 @@ footer {
   align-items: center;
 }
 
-.wrapper__footer, .wrapper__footer2 {
+.wrapper__footer,
+.wrapper__footer2 {
   background-color: rgba(19, 23, 27, 0.5);
   border-radius: 20px;
   backdrop-filter: blur(20px);
@@ -1360,7 +1387,8 @@ footer {
   animation: showMenu 1s forwards;
 }
 
-#close, #menu {
+#close,
+#menu {
   cursor: pointer;
 }
 
@@ -1378,7 +1406,7 @@ footer {
 }
 
 .menu__window a {
-  font-family: 'Actay Wide';
+  font-family: "Actay Wide";
   font-size: 28px;
   font-weight: 700;
   transition: 0.2s ease;
@@ -1409,6 +1437,10 @@ footer {
   display: flex;
   flex-flow: row;
   justify-content: space-between;
+}
+
+#weightitem {
+  display: none;
 }
 
 @keyframes showPopup {

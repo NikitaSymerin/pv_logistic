@@ -1780,6 +1780,9 @@ h2 {
   font-weight: 700;
   letter-spacing: -1.2px;
 }
+h3:nth-child(1) {
+  margin-top: 0 !important;
+}
 h3 {
   margin-top: 20px;
   margin-bottom: 10px;

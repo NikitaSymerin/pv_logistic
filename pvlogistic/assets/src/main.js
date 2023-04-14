@@ -15,10 +15,11 @@ if (video)
 
 window.addEventListener("load", function () {
   loaderblock.classList.add("loader__container--hidden");
-  setTimeout(() => {
-    videoContainer.style.opacity = "0";
-    videoContainer.style.zIndex = "-1";
-  }, timeVideo * 1000 - 2000);
+  if (videoContainer)
+    setTimeout(() => {
+      videoContainer.style.opacity = "0";
+      videoContainer.style.zIndex = "-1";
+    }, timeVideo * 1000);
   if (docWidth >= 470)
     if (popup)
       setTimeout(() => {

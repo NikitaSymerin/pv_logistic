@@ -67,6 +67,10 @@
   .conveer-line {
     animation: conveerDesktop 8s linear infinite;
   }
+  .fullcalc__modal__window form input[type="text"] {
+    width: 100% !important;
+    height: 45px !important;
+  }
 }
 
 @media screen and (min-width: 485px) and (max-width: 1024px) {
@@ -253,6 +257,10 @@
   .text_con .title__con {
     font-size: 7vw !important;
   }
+  .fullcalc__modal__window form input[type="text"] {
+    width: 100% !important;
+    height: 45px !important;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 640px) {
@@ -364,6 +372,9 @@
   .form__map {
     width: 100% !important;
   }
+  .fullcalc__modal__window form input[type="date"] {
+    width: 100% !important;
+  }
 }
 
 @media screen and (min-width: 320px) and (max-width: 485px) {
@@ -455,6 +466,9 @@
   }
   .wrapper__about2 .wrapper__text .wrapper__title {
     font-size: 9vw !important;
+  }
+  .fullcalc__modal__window .form_btn {
+    height: auto !important;
   }
 }
 

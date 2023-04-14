@@ -11,8 +11,7 @@
                 <span class="modal__text__grid">Расстояние: <span id="modal-dist"></span> км</span>
             </div>
             <div class="modal__inputs">
-                <input id="modal-mail" type="email" required class="input-item"
-                    placeholder="Адрес электронной почты">
+                <input id="modal-mail" type="email" required class="input-item" placeholder="Адрес электронной почты">
                 <input id="modal-tel" type="tel" required class="input-item" placeholder="Номер телефона">
                 <input id="modal-comment" type="text" required class="input-item modal__item2"
                     placeholder="Комментарий">
@@ -38,20 +37,84 @@
             <span class="modal__title">Заказ звонка от нашей компании</span>
             <div class="modal__sub__inputs">
                 <input id="modal-order-name" type="text" required class="input-item" placeholder="Имя">
-                <input id="modal-order-phone" type="phone" required class="input-item"
-                    placeholder="Телефон">
+                <input id="modal-order-phone" type="phone" required class="input-item" placeholder="Телефон">
             </div>
             <div class="modal__btn__container">
                 <button onclick="orderCall()" class="form_btn bordered modal__btn">Заказать звонок</button>
             </div>
         </div>
 
+        <div class="fullcalc__modal__window bordered">
+            <form>
+                <label>Способ перевозки:</label><br>
+                <input type="radio" name="transport" value="sbor" checked>Сборный груз<br>
+                <input type="radio" name="transport" value="vt">Выделенный транспорт<br>
+                <input type="radio" name="transport" value="kont">Контейнер<br><br>
+
+                <label>Состав груза:</label><br>
+                <input type="radio" name="cargo" value="single">1 место<br>
+                <input type="radio" name="cargo" value="multiple">Несколько мест<br>
+                <input type="radio" name="cargo" value="letter">Письмо<br><br>
+
+                <label id="weightitem">Габариты груза:</label><br>
+                <div id="container"></div><br>
+                <script src="../src/formcalc.js"></script>
+                <label>Характер груза:</label><br>
+                <input class="input-item" type="text" name="cargoType"><br><br>
+
+                <label>Объявленная стоимость (руб):</label><br>
+                <input class="input-item" type="text" name="value"><br><br>
+
+                <label>Откуда:</label><br>
+                <input class="input-item" type="text" name="from"><br>
+                <label style="margin-top: 15px;">Самостоятельно привезти груз на терминал:</label>
+                <input type="checkbox" name="pickupFrom" value="true"><br>
+                <label>Забрать груз от адреса отправителя:</label>
+                <input type="checkbox" name="deliveryFrom" value="true"><br><br>
+
+                <label>Куда:</label><br>
+                <input class="input-item" type="text" name="to"><br>
+                <label style="margin-top: 15px;">Самостоятельно забрать груз с терминала:</label>
+                <input type="checkbox" name="pickupTo" value="true"><br>
+                <label>Доставить груз до адреса получателя:</label>
+                <input type="checkbox" name="deliveryTo" value="true"><br><br>
+
+                <label>Дата доставки:</label><br>
+                <input class="input-item" type="date" name="deliveryDate"><br><br>
+                <label>Услуги на терминале отправителе:</label><br>
+                <input type="checkbox" name="palletBoard" value="true">Упаковать в палетный борт (только до
+                терминала-получателя)<br>
+                <input type="checkbox" name="palletBoardAmortization" value="true">Упаковать в комплекс «палетный борт +
+                амортизация» (только до терминала-получателя)<br>
+                <input type="checkbox" name="woodenCrate" value="true">Упаковать в деревянную обрешетку<br>
+                <input type="checkbox" name="woodenCrateAmortization" value="true">Упаковать в комплекс «обрешетка +
+                амортизация»<br>
+                <input type="checkbox" name="hardBox" value="true">Упаковать в жесткий короб<br>
+                <input type="checkbox" name="bags" value="true">Упаковать в мешки<br>
+                <input type="checkbox" name="additionalPackaging" value="true">Упаковать в дополнительную упаковку<br>
+                <input type="checkbox" name="bubbleWrap" value="true">Упаковать в воздушно-пузырьковую пленку<br>
+                <input type="checkbox" name="cardboardBoxes" value="true">Упаковать в картонные коробки<br>
+                <input type="checkbox" name="autoGlassPackaging" value="true">Упаковать в специальную упаковку для
+                автостекол<br>
+                <input type="checkbox" name="autoPartsPackaging" value="true">Упаковать в специальную упаковку для
+                автозапчастей<br><br>
+
+                <label>Услуги по сопроводительным документам:</label><br>
+                <input type="checkbox" name="sendDocs" value="true">Отправка сопроводительных документов<br>
+                <input type="checkbox" name="returnDocs" value="true">Возврат сопроводительных документов<br><br>
+            </form>
+            <div class="modal__btn__container">
+                <button class="form_btn bordered modal__btn" type="button" onclick="calculate()">Рассчитать стоимость
+                    доставки</button>
+            </div>
+        </div>
+
         <div class="sub__modal__window bordered">
-            <span class="modal__title">Узнавайте первыми о специальных предложениях и акциях для наших подписчиков!</span>
+            <span class="modal__title">Узнавайте первыми о специальных предложениях и акциях для наших
+                подписчиков!</span>
             <div class="modal__sub__inputs">
                 <input id="modal-sub-name" type="text" required class="input-item" placeholder="Имя">
-                <input id="modal-sub-mail" type="email" required class="input-item"
-                    placeholder="Электронная почта">
+                <input id="modal-sub-mail" type="email" required class="input-item" placeholder="Электронная почта">
             </div>
             <div class="modal__btn__container">
                 <button onclick="subscribe()" class="form_btn bordered modal__btn">Готово</button>

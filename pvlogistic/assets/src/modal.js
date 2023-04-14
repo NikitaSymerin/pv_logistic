@@ -3,6 +3,7 @@ const modalWindow = document.querySelector(".calc__modal__window");
 const successModal = document.querySelector(".success__modal__window");
 const orderModal = document.querySelector(".order__modal__window");
 const subModal = document.querySelector(".sub__modal__window");
+const fullCalcModal = document.querySelector(".fullcalc__modal__window");
 
 const data = {
   name: "",
@@ -44,13 +45,21 @@ function acceptSub() {
   popup.style.opacity = "0";
   popup.style.zIndex = "-1";
 
-  orderModal.style.zIndex = "-10000";
+  orderModal.style.zIndex = "-1";
   orderModal.style.opacity = "0";
   modalWindow.style.opacity = "0";
   modal.classList.add("calc__modal--active");
   modal.style.background = "rgba(0, 0, 0, 0.5)";
   subModal.style.zIndex = "10000";
   subModal.style.opacity = "1";
+}
+
+function openFullCalc() {
+  modalWindow.style.opacity = "0";
+  modal.classList.add("calc__modal--active");
+  modal.style.background = "rgba(0, 0, 0, 0.5)";
+  fullCalcModal.style.zIndex = "10000";
+  fullCalcModal.style.opacity = "1";
 }
 
 function closeModal() {
@@ -61,6 +70,8 @@ function closeModal() {
   subModal.style.opacity = "0";
   orderModal.style.zIndex = "-1";
   orderModal.style.opacity = "0";
+  fullCalcModal.style.zIndex = "-1";
+  fullCalcModal.style.opacity = "0";
   modal.style.background = "none";
 }
 
@@ -101,7 +112,7 @@ async function openModal(event, dir) {
   document.getElementById("modal-dist").innerHTML = data.distance;
 
   modalWindow.style.display = "block";
-  orderModal.style.zIndex = "-10000";
+  orderModal.style.zIndex = "-1";
   orderModal.style.opacity = "0";
   modalWindow.style.opacity = "1";
   modal.classList.add("calc__modal--active");
