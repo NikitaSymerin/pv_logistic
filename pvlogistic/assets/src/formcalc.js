@@ -1,95 +1,76 @@
-const flag = document.getElementById("weightitem");
+
+document.querySelectorAll('input[name="cargo"]').forEach((input) => {
+  input.addEventListener("change", showFields);
+});
 
 function showFields() {
-  let cargo = document.querySelector('input[name="cargo"]:checked').value;
-  let container = document.querySelector("#container");
-  container.innerHTML = "";
-  if (cargo === "single") {
-    flag.style.display = "block"
-    let inputWeight = createInput("text", "weight", "Вес груза (кг)");
-    let inputLength = createInput("text", "length", "Длина (м)");
-    let inputWidth = createInput("text", "width", "Ширина (м)");
-    let inputHeight = createInput("text", "height", "Высота (м)");
-    container.appendChild(inputWeight);
-    container.appendChild(inputLength);
-    container.appendChild(inputWidth);
-    container.appendChild(inputHeight);
-  } else if (cargo === "multiple") {
-    let numFields = parseInt(prompt("Введите количество мест:"));
-    if (isNaN(numFields) || numFields < 1) {
-      document.querySelector(
-        'input[name="cargo"][value="single"]'
-      ).checked = true;
-      showFields();
-      return;
+  let e = document.querySelector('input[name="cargo"]:checked').value,
+    t = document.querySelector("#container");
+  if (((t.innerHTML = ""), "single" === e)) {
+    let e = document.createElement("h5");
+    (e.textContent = "Габариты груза:"), t.appendChild(e);
+    let n = createInput("text", "weight", "Вес груза (кг)"),
+      c = createInput("text", "length", "Длина (м)"),
+      a = createInput("text", "width", "Ширина (м)"),
+      r = createInput("text", "height", "Высота (м)");
+    t.appendChild(n), t.appendChild(c), t.appendChild(a), t.appendChild(r);
+  } else if ("multiple" === e) {
+    let e = parseInt(prompt("Введите количество мест:"));
+    if (isNaN(e) || e < 1)
+      return (
+        (document.querySelector('input[name="cargo"][value="single"]').checked =
+          !0),
+        void showFields()
+      );
+    for (let n = 1; n <= e; n++) {
+      let e = document.createElement("h5");
+      (e.textContent = "Габариты груза:"), t.appendChild(e);
+      let c = document.createElement("h3");
+      c.textContent = `Место ${n}`;
+      let a = createInput("text", `weight${n}`, "Вес груза (кг)"),
+        r = createInput("text", `length${n}`, "Длина (м)"),
+        l = createInput("text", `width${n}`, "Ширина (м)"),
+        d = createInput("text", `height${n}`, "Высота (м)");
+      t.appendChild(c),
+        t.appendChild(a),
+        t.appendChild(r),
+        t.appendChild(l),
+        t.appendChild(d);
     }
-    flag.style.display = "block"
-    for (let i = 1; i <= numFields; i++) {
-      let header = document.createElement("h3");
-      header.textContent = `Место ${i}`;
-      let inputWeight = createInput("text", `weight${i}`, "Вес груза (кг)");
-      let inputLength = createInput("text", `length${i}`, "Длина (м)");
-      let inputWidth = createInput("text", `width${i}`, "Ширина (м)");
-      let inputHeight = createInput("text", `height${i}`, "Высота (м)");
-      container.appendChild(header);
-      container.appendChild(inputWeight);
-      container.appendChild(inputLength);
-      container.appendChild(inputWidth);
-      container.appendChild(inputHeight);
-    }
-  } else if (cargo === "letter") {
-    flag.style.display = "block"
-    let inputWeight = createInput("text", "weight", "Вес груза (гр)");
-    let inputLength = createInput("text", "length", "Длина (см)");
-    let inputWidth = createInput("text", "width", "Ширина (см)");
-    let inputHeight = createInput("text", "height", "Высота (см)");
-    container.appendChild(inputWeight);
-    container.appendChild(inputLength);
-    container.appendChild(inputWidth);
-    container.appendChild(inputHeight);
+  } else if ("letter" === e) {
+    let e = document.createElement("h5");
+    (e.textContent = "Габариты груза:"), t.appendChild(e);
+    let n = createInput("text", "weight", "Вес груза (гр)"),
+      c = createInput("text", "length", "Длина (см)"),
+      a = createInput("text", "width", "Ширина (см)"),
+      r = createInput("text", "height", "Высота (см)");
+    t.appendChild(n), t.appendChild(c), t.appendChild(a), t.appendChild(r);
   }
-
-  document.querySelectorAll('input[name="cargo"]').forEach((input) => {
-    document.querySelector(
-      'input[name="transport"][value="sbor"]'
-    ).checked = true;
-    input.addEventListener("change", function () {
-      // Если выбран переключатель "Выделенный транспорт" или "Контейнер", снимаем переключатели группы "Состав груза"
-      if (
+  document.querySelectorAll('input[name="cargo"]').forEach((e) => {
+    (document.querySelector('input[name="transport"][value="sbor"]').checked =
+      !0),
+      e.addEventListener("change", function () {
         document.querySelector('input[name="transport"][value="vt"]').checked ||
         document.querySelector('input[name="transport"][value="kont"]').checked
-      ) {
-        document
-          .querySelectorAll('input[name="cargo"]')
-          .forEach((otherInput) => {
-            otherInput.checked = false;
+          ? document.querySelectorAll('input[name="cargo"]').forEach((e) => {
+              e.checked = !1;
+            })
+          : document.querySelectorAll('input[name="cargo"]').forEach((e) => {
+              e.disabled = !1;
+            }),
+          (document.querySelector(
+            'input[name="transport"][value="sbor"]'
+          ).checked = !0);
+      });
+  }),
+    document.querySelectorAll('input[name="transport"]').forEach((e) => {
+      e.addEventListener("change", function () {
+        e.checked &&
+          document.querySelectorAll('input[name="cargo"]').forEach((e) => {
+            e.checked = !1;
           });
-      } else {
-        document
-          .querySelectorAll('input[name="cargo"]')
-          .forEach((otherInput) => {
-            otherInput.disabled = false;
-          });
-      }
-      // Устанавливаем переключатель на Сборный груз
-      document.querySelector(
-        'input[name="transport"][value="sbor"]'
-      ).checked = true;
+      });
     });
-  });
-
-  document.querySelectorAll('input[name="transport"]').forEach((input) => {
-    input.addEventListener("change", function () {
-      // Если выбран переключатель "Выделенный транспорт" или "Контейнер", снимаем переключатели группы "Состав груза"
-      if (input.checked) {
-        document
-          .querySelectorAll('input[name="cargo"]')
-          .forEach((otherInput) => {
-            otherInput.checked = false;
-          });
-      }
-    });
-  });
 }
 
 function createInput(type, name, label) {
@@ -103,7 +84,3 @@ function createInput(type, name, label) {
   inputLabel.appendChild(input);
   return inputLabel;
 }
-
-document.querySelectorAll('input[name="cargo"]').forEach((input) => {
-  input.addEventListener("change", showFields);
-});

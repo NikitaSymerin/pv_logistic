@@ -27,6 +27,10 @@ document.addEventListener(
   }.bind(this)
 );
 
+document.getElementById("closeFullCalc").addEventListener("click", () => {
+  closeModal();
+})
+
 function cancelSub() {
   popup.style.opacity = "0";
   popup.style.zIndex = "-1";

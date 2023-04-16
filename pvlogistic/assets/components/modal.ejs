@@ -45,6 +45,7 @@
         </div>
 
         <div class="fullcalc__modal__window bordered">
+            <img id="closeFullCalc" src="img/close.svg">
             <form>
                 <label>Способ перевозки:</label><br>
                 <input type="radio" name="transport" value="sbor" checked>Сборный груз<br>
@@ -66,14 +67,18 @@
                 <input class="input-item" type="text" name="value"><br><br>
 
                 <label>Откуда:</label><br>
-                <input class="input-item" type="text" name="from"><br>
+                <input class="input-item" type="text" name="from" id="from"><br>
+                <script>function init(){new ymaps.SuggestView("from")}ymaps.ready(init)</script>
+
                 <label style="margin-top: 15px;">Самостоятельно привезти груз на терминал:</label>
                 <input type="checkbox" name="pickupFrom" value="true"><br>
                 <label>Забрать груз от адреса отправителя:</label>
                 <input type="checkbox" name="deliveryFrom" value="true"><br><br>
 
                 <label>Куда:</label><br>
-                <input class="input-item" type="text" name="to"><br>
+                <input class="input-item" type="text" name="to" id="to"><br>
+                <script>function init(){new ymaps.SuggestView("to")}ymaps.ready(init)</script>
+
                 <label style="margin-top: 15px;">Самостоятельно забрать груз с терминала:</label>
                 <input type="checkbox" name="pickupTo" value="true"><br>
                 <label>Доставить груз до адреса получателя:</label>
@@ -107,6 +112,7 @@
                 <button class="form_btn bordered modal__btn" type="button" onclick="calculate()">Рассчитать стоимость
                     доставки</button>
             </div>
+            <div id="result"></div>
         </div>
 
         <div class="sub__modal__window bordered">

@@ -16,6 +16,11 @@
   box-sizing: border-box;
 }
 
+ymaps {
+  position: static !important;
+  color: #000 !important;
+}
+
 .mg {
   margin: 0 8vw;
   height: 100%;
@@ -920,7 +925,8 @@ footer {
   top: -12%;
 }
 
-.fullcalc__modal__window form input[type="radio"], .fullcalc__modal__window form input[type="checkbox"] {
+.fullcalc__modal__window form input[type="radio"],
+.fullcalc__modal__window form input[type="checkbox"] {
   margin-right: 5px;
 }
 
@@ -1441,6 +1447,17 @@ footer {
 
 #weightitem {
   display: none;
+}
+
+#result {
+  text-align: center;
+}
+
+#closeFullCalc {
+  position: absolute;
+  right: 5%;
+  cursor: pointer;
+  z-index: 1000000;
 }
 
 @keyframes showPopup {
