@@ -1,0 +1,538 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+@media screen and (min-width: 1600px) and (max-width: 5000px) {
+  .wrapper__form {
+    width: 30vw !important;
+  }
+  .conveer-line {
+    animation: conveerDesktop 8s linear infinite;
+  }
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1440px) {
+  .wrapper__form {
+    width: 50vw !important;
+  }
+  .header__item {
+    font-size: 14px;
+    min-width: 120px !important;
+  }
+  header {
+    height: 150px !important;
+  }
+  .mg {
+    margin: 0 3vw !important;
+  }
+  .wrapper__title {
+    font-size: 50px !important;
+  }
+  .wrapper__footer2 .wrapper__title {
+    font-size: 32px !important;
+  }
+  .wrapper__decription {
+    font-size: 18px !important;
+    padding-top: 10px !important;
+  }
+  .input-item {
+    width: 45% !important;
+    height: 55px !important;
+    font-size: 16px !important;
+  }
+  .form_btn {
+    height: 55px !important;
+  }
+  .header__item__logo {
+    width: 220px !important;
+  }
+  .about__logistics__item {
+    font-size: 2.3vw !important;
+  }
+  .arrow5 {
+    width: 5vw !important;
+    height: 3.9vw !important;
+  }
+  .about__calculate form .input-item {
+    width: auto !important;
+  }
+  .coop__item:nth-child(1) {
+    background-size: 90% !important;
+  }
+  .about__besides {
+    background-size: 45% !important;
+  }
+  #modal-tel,
+  #modal-mail {
+    width: 95% !important;
+  }
+  .conveer-line {
+    animation: conveerDesktop 8s linear infinite;
+  }
+  .fullcalc__modal__window form input[type="text"] {
+    width: 100% !important;
+    height: 45px !important;
+  }
+}
+
+@media screen and (min-width: 485px) and (max-width: 1024px) {
+  .conveer-line {
+    animation: conveerDesktop 8s linear infinite;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 1024px) {
+  body .about__main, body .footer__back {
+    height: 110vh !important;
+  }
+  .main {
+    background-image: linear-gradient(
+        to right,
+        rgba(0, 0, 0),
+        rgba(0, 0, 0, 0.5)
+      ),
+      url(../img/background.png) !important;
+    height: 150vh !important;
+  }
+  .wrapper__about {
+    flex-direction: row !important;
+  }
+  .wrapper__about .wrapper__title {
+    font-size: 7.3vw !important;
+  }
+  .wrapper__footer2 .wrapper__title {
+    font-size: 32px !important;
+  }
+  .wrapper__about .wrapper__decription {
+    font-size: 4.5vw !important;
+  }
+  .wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .wrapper__text {
+    text-align: center !important;
+    width: 100% !important;
+  }
+  .header__item__links {
+    flex-flow: column;
+  }
+  .header__item {
+    padding: 2px 0 !important;
+  }
+  .header__item__button {
+    font-size: 16px !important;
+  }
+  .mg {
+    margin: 0 2vw !important;
+    height: 90% !important;
+  }
+  .wrapper__title {
+    font-size: 48px !important;
+  }
+  .wrapper__decription {
+    font-size: 18px !important;
+  }
+  .wrapper__form {
+    width: 75vw !important;
+  }
+  .form__title {
+    font-size: 28px !important;
+  }
+  .input-item {
+    width: 45% !important;
+    height: 55px !important;
+  }
+  .about__inner {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr !important;
+  }
+  .about__centres {
+    background-size: 50%;
+  }
+  .centres__text .centres__title {
+    max-width: 100% !important;
+  }
+  .about__title {
+    max-width: 100% !important;
+  }
+  .about__inner__block .about__inner_block__title {
+    font-size: 18px !important;
+  }
+  .about__coop {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr !important;
+  }
+  .coop__item:nth-child(1) {
+    background-size: 70% !important;
+    background-image: linear-gradient(to bottom, #20202063, #20202063),
+      url("../img/car_btn.png") !important;
+    grid-column-start: 2 span !important;
+    grid-row-start: 1 span !important;
+  }
+  .coop_desc {
+    font-size: 16px !important;
+  }
+  .coop__title {
+    font-size: 3vw !important;
+  }
+  .coop__item button {
+    width: 100% !important;
+  }
+  .coop__item:nth-child(2) {
+    background-image: url("../img/block3_btn.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: bottom right !important;
+  }
+  .coop__item:nth-child(3) {
+    background-image: url("../img/block4_btn.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: bottom left !important;
+  }
+  .about__logistics__item {
+    font-size: 2.3vw !important;
+  }
+  .arrow5 {
+    width: 4vw !important;
+    height: 2.9vw !important;
+  }
+  .about__calculate form .input-item {
+    width: auto !important;
+  }
+  .about__calculate {
+    flex-direction: column !important;
+  }
+  .about__calculate form {
+    width: 100% !important;
+    grid-template-columns: 1fr 1fr 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr 1fr !important;
+  }
+  .slider__item__header__rate {
+    width: auto !important;
+  }
+  .footer__container {
+    flex-flow: column;
+  }
+  .footer__map {
+    width: 100% !important;
+    margin-top: 40px;
+  }
+  .about__block2__item .item__title,
+  .about__forwhat__item .item__title,
+  .about__besides__text .item__title,
+  .item__title {
+    font-size: 4vw !important;
+  }
+  .item__block span {
+    font-size: 2.5vw !important;
+  }
+  .item__block {
+    padding: 25px !important;
+  }
+  .cens {
+    max-width: 100% !important;
+  }
+  .about__item span {
+    font-size: 2vw !important;
+  }
+  .about__besides {
+    background-position-x: 50vw !important;
+    background-size: 70% !important;
+  }
+  .about__besides__text {
+    width: 60vw !important;
+  }
+  .wrapper__footer .wrapper__text .wrapper__title {
+    font-size: 5vw !important;
+  }
+  #modal-tel,
+  #modal-mail {
+    width: 95% !important;
+  }
+  #loader {
+    width: 10vw !important;
+    height: 10vw !important;
+    border: 2vw solid #f3f3f3 !important;
+    border-top: 2vw solid #ff0000 !important;
+  }
+  .text_con .title__con {
+    font-size: 7vw !important;
+  }
+  .fullcalc__modal__window form input[type="text"] {
+    width: 100% !important;
+    height: 45px !important;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 640px) {
+  .centres__text {
+    padding-bottom: 50vw !important;
+  }
+  .centres__text .centres__title {
+    font-size: 6vw !important;
+  }
+  .centres__text span {
+    max-width: 100% !important;
+  }
+  .about__centres {
+    background-size: 100% !important;
+    background-position: bottom !important;
+  }
+  .centres__blocks__item {
+    width: 50% !important;
+  }
+  .about__title {
+    font-size: 8vw !important;
+  }
+  .grid {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr 1fr !important;
+  }
+  .about__text {
+    margin-top: 50px !important;
+  }
+  .about__inner__block {
+    margin: 5px !important;
+  }
+  .coop__item {
+    margin: 5px !important;
+  }
+  .coop__title {
+    font-size: 2.5vw !important;
+  }
+  .about__logistics__item {
+    font-size: 2.6vw !important;
+  }
+  .about__calculate form {
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr !important;
+  }
+  .calc__modal__window {
+    width: 330px !important;
+  }
+  .modal__inputs {
+    padding-top: 15px;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 1fr 1fr 1fr !important;
+  }
+  .calc__modal__window .modal__inputs .input-item {
+    width: 100% !important;
+    margin: 5px 0 !important;
+  }
+  .modal__text {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr !important;
+  }
+  .modal__btn {
+    width: 100% !important;
+  }
+  .about__items {
+    grid-template-columns: 1fr 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr;
+  }
+  .wrapper__footer a button {
+    width: 100% !important;
+  }
+  .wrapper__footer {
+    margin-top: 250px;
+  }
+  .wrapper__footer .wrapper__text .wrapper__decription {
+    width: 100% !important;
+  }
+  #modal-tel,
+  #modal-mail {
+    width: 100% !important;
+  }
+  .modal__item2 {
+    grid-column-start: auto !important;
+  }
+  .header__item {
+    min-width: 100px !important;
+  }
+  .header__item__links {
+    flex-flow: row !important;
+    width: 95vw !important;
+  }
+  header {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    grid-template-rows: 1fr 1fr !important;
+    height: 200px !important;
+  }
+  .grid2 {
+    grid-row-start: span 2 !important;
+    grid-column-start: span 2 !important;
+  }
+  .grid2 .header__item {
+    font-size: 3vw !important;
+  }
+  .grid3 {
+    grid-row-start: 1 !important;
+    grid-column-start: 2 !important;
+  }
+  .form__map {
+    width: 100% !important;
+  }
+  .fullcalc__modal__window form input[type="date"] {
+    width: 100% !important;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 485px) {
+  .wrapper__form {
+    width: 93vw !important;
+  }
+  .wrapper__title {
+    font-size: 10vw !important;
+  }
+
+  .mg {
+    margin: 0 1vw !important;
+  }
+  .input-item {
+    width: 45% !important;
+  }
+  .centres__blocks {
+    flex-direction: column;
+    min-height: 120px;
+    justify-content: space-between;
+  }
+  .centres__blocks__item {
+    width: 100% !important;
+  }
+  .centres__text .centres__title {
+    font-size: 5.5vw !important;
+  }
+  .centres__text .centres__title2 {
+    font-size: 5.5vw !important;
+  }
+  .about span {
+    font-size: 16px !important;
+  }
+  .about__coop {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 1fr 1.5fr 1.5fr !important;
+  }
+  .coop__item:nth-child(1) {
+    background-image: url("../img/car_btn.png") !important;
+    background-size: 90% !important;
+    grid-column-start: 1 span !important;
+    grid-row-start: 2 span !important;
+  }
+  .coop__item:nth-child(2) {
+    background-image: url("../img/block1_btn.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: bottom right !important;
+  }
+  .coop__item:nth-child(3) {
+    background-image: url("../img/block2_btn.png") !important;
+    background-repeat: no-repeat !important;
+    background-position: top right !important;
+  }
+  .about__forwhat {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 1fr 1fr;
+  }
+  .forwhat__grid {
+    grid-template-rows: 0.5fr 1fr !important;
+  }
+  .forwhat__grid .item__block {
+    grid-row-start: 2;
+  }
+  .about__besides .item__title,
+  .about__block2__item .item__title,
+  .about__forwhat__item .item__title {
+    font-size: 7vw !important;
+  }
+  .about__item span {
+    font-size: 3vw !important;
+  }
+  .about__block2 {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 0.5fr 1fr;
+  }
+  .about__besides__text {
+    width: 100% !important;
+  }
+  .about__besides {
+    padding-bottom: 60vw !important;
+    background-position-x: right !important;
+    background-size: 90% !important;
+  }
+  .wrapper__about {
+    margin-top: 70px;
+  }
+  .conveer-line {
+    animation: conveerMobile 8s linear infinite;
+  }
+  .wrapper__about2 .wrapper__text .wrapper__title {
+    font-size: 9vw !important;
+  }
+  .fullcalc__modal__window .form_btn {
+    height: auto !important;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 400px) {
+  .about__coop {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 1fr 1.75fr 1.75fr !important;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 420px) {
+  .form__input__box-row {
+    margin: 0 !important;
+    width: 100% !important;
+  }
+  .input-item {
+    width: 100% !important;
+    margin-top: 10px !important;
+    height: 45px !important;
+  }
+  .about__inner {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 1fr 1fr 1fr 1fr !important;
+  }
+  .about__calculate form {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr !important;
+  }
+  .input__grid1 {
+    grid-row-start: 1 !important;
+    grid-column-start: 1 !important;
+  }
+  .input__grid2 {
+    grid-row-start: 2 !important;
+    grid-column-start: 1 !important;
+  }
+  .input__grid7 {
+    grid-row-start: 7 !important;
+    grid-column-start: 1 !important;
+  }
+  #search-btn {
+    width: 100% !important;
+  }
+}
+
+@media screen and (min-width: 320px) and (max-width: 340px) {
+  header {
+    height: 150px !important;
+    grid-template-columns: auto !important;
+    grid-template-rows: auto !important;
+  }
+  .grid2 {
+    grid-row-start: 2 !important;
+    grid-column-start: 1 !important;
+  }
+  .grid3 {
+    grid-row-start: 2 !important;
+    grid-column-start: 2 !important;
+  }
+  .header__item__links {
+    flex-flow: column !important;
+    width: 50vw !important;
+  }
+  .wrapper {
+    margin-top: 15px;
+  }
+}
