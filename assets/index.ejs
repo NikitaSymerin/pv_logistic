@@ -39,7 +39,8 @@
     <section class="main">
         <div id="video">
             <video muted autoplay width="100%" height="100%" id="videoplay">
-                <source src="video/IMG_4943.MP4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+                <source src="video/IMG_4943.MP4">
+                <source src="video/IMG_4943.mov">
             </video>
         </div>
         <div class="mg">
@@ -51,25 +52,26 @@
                             года</span>
                     </div>
                     <div class="wrapper__form bordered">
-                        <form>
+                        <form onsubmit="openModal(event, 1)">
                             <span class="form__title">Расчёт стоимости</span>
 
                             <div class="form__input__box-row">
-                                <input id="form-name" type="name" class="input-item" placeholder="Имя">
-                                <input id="form-tel" type="tel" class="input-item" placeholder="Телефон">
+                                <input required id="form-name" type="name" class="input-item" placeholder="Имя">
+                                <input required id="form-tel" type="tel" class="input-item" placeholder="Телефон">
                             </div>
                             <div class="form__input__box-row">
-                                <input id="form-from" type="text" class="input-item" placeholder="Откуда?">
-                                <input id="form-to" type="text" class="input-item" placeholder="Куда?">
+                                <input required id="form-from" type="text" class="input-item" placeholder="Откуда?">
+                                <input required id="form-to" type="text" class="input-item" placeholder="Куда?">
                             </div>
                             <div class="form__input__box-row">
-                                <input id="form-weight" type="number" class="input-item" placeholder="Вес груза (в кг)">
-                                <input id="form-volume" type="number" class="input-item"
+                                <input required id="form-weight" type="number" class="input-item" placeholder="Вес груза (в кг)">
+                                <input required id="form-volume" type="number" class="input-item"
                                     placeholder="Объем груза (в м3)">
                             </div>
 
-                            <button type="submit" onclick="openModal(event, 1)" class="form_btn bordered">Получить
-                                расчёт</button>
+                            <button type="submit" class="form_btn bordered">Получить
+                                расчёт
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -159,7 +161,8 @@
             </div>
 
             <video style="margin-top: 50px;" muted autoplay loop width="100%" height="100%">
-                <source src="video/animation.mp4" type='video/MP4'>
+                <source src="video/animation.mp4">
+                <source src="video/animation.mov">
             </video>
 
             <div class="about__text">
@@ -299,15 +302,16 @@
                 <div class="about__title cens" id="target">РАСЧЁТ СТОИМОСТИ</div>
             </div>
             <div class="about__calculate">
-                <form>
-                    <input id="form2-name" type="name" class="input-item input__grid1" placeholder="Имя">
-                    <input id="form2-tel" type="tel" class="input-item input__grid2" placeholder="Телефон">
-                    <input id="form2-from" type="from" class="input-item" placeholder="Откуда?">
-                    <input id="form2-to" type="to" class="input-item" placeholder="Куда?">
-                    <input id="form2-weight" type="weight" class="input-item" placeholder="Вес груза (в кг)">
-                    <input id="form2-volume" type="volume" class="input-item" placeholder="Объем груза (в м3)">
-                    <button onclick="openModal(event, 2)" class="form_btn bordered input__grid7" type="submit">Получить
-                        расчёт</button>
+                <form onsubmit="openModal(event, 2)">
+                    <input required id="form2-name" type="name" class="input-item input__grid1" placeholder="Имя">
+                    <input required id="form2-tel" type="tel" class="input-item input__grid2" placeholder="Телефон">
+                    <input required id="form2-from" type="from" class="input-item" placeholder="Откуда?">
+                    <input required id="form2-to" type="to" class="input-item" placeholder="Куда?">
+                    <input required id="form2-weight" type="weight" class="input-item" placeholder="Вес груза (в кг)">
+                    <input required id="form2-volume" type="volume" class="input-item" placeholder="Объем груза (в м3)">
+                    <button class="form_btn bordered input__grid7" type="submit">
+                        Получить расчёт
+                    </button>
                 </form>
                 <div class="about__calculate__pic"><img src="img/formpic.png"></div>
             </div>

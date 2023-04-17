@@ -857,7 +857,6 @@ footer {
   right: 0;
   left: 0;
   overflow: hidden;
-  overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   display: flex;
   flex-flow: column nowrap;
@@ -899,6 +898,7 @@ footer {
 
 .blur__modal {
   backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
 }
 
 .success__modal__window,

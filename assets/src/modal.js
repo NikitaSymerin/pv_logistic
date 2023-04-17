@@ -62,6 +62,7 @@ function openFullCalc() {
   modalWindow.style.opacity = "0";
   modal.classList.add("calc__modal--active");
   modal.style.background = "rgba(0, 0, 0, 0.5)";
+  modal.style.overflow = "auto";
   fullCalcModal.style.zIndex = "10000";
   fullCalcModal.style.opacity = "1";
 }
@@ -70,6 +71,7 @@ function closeModal() {
   modal.classList.remove("calc__modal--active");
   successModal.style.zIndex = "-1";
   successModal.style.opacity = "0";
+  modal.style.overflow = "hidden";
   subModal.style.zIndex = "-1";
   subModal.style.opacity = "0";
   orderModal.style.zIndex = "-1";

@@ -14,7 +14,6 @@ if (video)
   });
 
 window.addEventListener("load", function () {
-  loaderblock.classList.add("loader__container--hidden");
   if (videoContainer)
     setTimeout(() => {
       videoContainer.style.opacity = "0";
