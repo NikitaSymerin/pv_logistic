@@ -1,86 +1,51 @@
-
-document.querySelectorAll('input[name="cargo"]').forEach((input) => {
-  input.addEventListener("change", showFields);
-});
-
-function showFields() {
-  let e = document.querySelector('input[name="cargo"]:checked').value,
-    t = document.querySelector("#container");
-  if (((t.innerHTML = ""), "single" === e)) {
-    let e = document.createElement("h5");
-    (e.textContent = "Габариты груза:"), t.appendChild(e);
-    let n = createInput("text", "weight", "Вес груза (кг)"),
-      c = createInput("text", "length", "Длина (м)"),
-      a = createInput("text", "width", "Ширина (м)"),
-      r = createInput("text", "height", "Высота (м)");
-    t.appendChild(n), t.appendChild(c), t.appendChild(a), t.appendChild(r);
-  } else if ("multiple" === e) {
-    let e = parseInt(prompt("Введите количество мест:"));
-    if (isNaN(e) || e < 1)
-      return (
-        (document.querySelector('input[name="cargo"][value="single"]').checked =
-          !0),
-        void showFields()
-      );
-    for (let n = 1; n <= e; n++) {
-      let e = document.createElement("h5");
-      (e.textContent = "Габариты груза:"), t.appendChild(e);
-      let c = document.createElement("h3");
-      c.textContent = `Место ${n}`;
-      let a = createInput("text", `weight${n}`, "Вес груза (кг)"),
-        r = createInput("text", `length${n}`, "Длина (м)"),
-        l = createInput("text", `width${n}`, "Ширина (м)"),
-        d = createInput("text", `height${n}`, "Высота (м)");
-      t.appendChild(c),
-        t.appendChild(a),
-        t.appendChild(r),
-        t.appendChild(l),
-        t.appendChild(d);
+document.addEventListener("DOMContentLoaded", () => {
+  const e = document.getElementsByName("shipment_type"),
+    n = document.getElementsByName("groupage_option"),
+    t = document.getElementById("groupage_options"),
+    l = document.getElementById("dimensions"),
+    i = document.getElementById("places_count"),
+    o = document.createElement("label");
+  (o.htmlFor = "places_count"), (o.innerText = "");
+  const a = document.getElementById("dimensions_fields");
+  function d() {
+    const e = document.querySelector(
+      'input[name="groupage_option"]:checked'
+    ).value;
+    let n = "",
+      t = "";
+    if (
+      ("letter" === e ? ((n = "гр"), (t = "см")) : ((n = "кг"), (t = "м")),
+      "multiple_places" === e)
+    )
+      l.insertBefore(o, a), (i.style.display = "inline");
+    else {
+      const e = l.querySelector('label[for="places_count"]');
+      e && l.removeChild(e), (i.style.display = "none"), (i.value = 1);
     }
-  } else if ("letter" === e) {
-    let e = document.createElement("h5");
-    (e.textContent = "Габариты груза:"), t.appendChild(e);
-    let n = createInput("text", "weight", "Вес груза (гр)"),
-      c = createInput("text", "length", "Длина (см)"),
-      a = createInput("text", "width", "Ширина (см)"),
-      r = createInput("text", "height", "Высота (см)");
-    t.appendChild(n), t.appendChild(c), t.appendChild(a), t.appendChild(r);
+    const d = parseInt(i.value);
+    a.innerHTML = "";
+    for (let l = 1; l <= d; l++)
+      a.innerHTML += `\n            ${
+        "multiple_places" === e
+          ? 1 === l
+            ? "<p>Место 1:</p>"
+            : `<p>Место ${l}:</p>`
+          : ""
+      }\n <input placeholder="Вес (${n})" class="input-item" type="number" name="weight_${l}" id="weight_${l}" step="0.01" required>\n<input class="input-item" placeholder="Длина (${t})" type="number" name="length_${l}" id="length_${l}" step="0.01" required>\n<input placeholder="Ширина (${t})" class="input-item" type="number" name="width_${l}" id="width_${l}" step="0.01" required>\n<input placeholder="Высота (${t})" class="input-item" type="number" name="height_${l}" id="height_${l}" step="0.01" required>\n            <br><br>\n        `;
   }
-  document.querySelectorAll('input[name="cargo"]').forEach((e) => {
-    (document.querySelector('input[name="transport"][value="sbor"]').checked =
-      !0),
-      e.addEventListener("change", function () {
-        document.querySelector('input[name="transport"][value="vt"]').checked ||
-        document.querySelector('input[name="transport"][value="kont"]').checked
-          ? document.querySelectorAll('input[name="cargo"]').forEach((e) => {
-              e.checked = !1;
-            })
-          : document.querySelectorAll('input[name="cargo"]').forEach((e) => {
-              e.disabled = !1;
-            }),
-          (document.querySelector(
-            'input[name="transport"][value="sbor"]'
-          ).checked = !0);
-      });
-  }),
-    document.querySelectorAll('input[name="transport"]').forEach((e) => {
-      e.addEventListener("change", function () {
-        e.checked &&
-          document.querySelectorAll('input[name="cargo"]').forEach((e) => {
-            e.checked = !1;
-          });
-      });
+  e.forEach((e) => {
+    e.addEventListener("change", () => {
+      "groupage" === e.value
+        ? (t.style.display = "block")
+        : ((t.style.display = "none"),
+          (l.style.display = "none"),
+          n.forEach((e) => (e.checked = !1)));
     });
-}
-
-function createInput(type, name, label) {
-  let input = document.createElement("input");
-  input.classList.add("input-item");
-  input.style.display = "block";
-  input.type = type;
-  input.name = name;
-  input.placeholder = label;
-  let inputLabel = document.createElement("label");
-  inputLabel.appendChild(input);
-  return inputLabel;
-}
+  }),
+    n.forEach((e) => {
+      e.addEventListener("change", () => {
+        (l.style.display = "block"), d();
+      });
+    }),
+    i.addEventListener("input", d);
+});

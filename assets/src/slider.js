@@ -15,13 +15,13 @@ if (docWidth < 5000 && docWidth > 1048) {
   slidesToShow = 3;
 }
 
-const container = document.querySelector(".slider__container");
+const containerSlider = document.querySelector(".slider__container");
 const track = document.querySelector(".slider__track");
 const btnPrev = document.querySelector(".btn__prev");
 const btnNext = document.querySelector(".btn__next");
 const items = document.querySelectorAll(".slider__item");
 const itemsCount = items.length;
-const itemWidth = container.clientWidth / slidesToShow - 40;
+const itemWidth = containerSlider.clientWidth / slidesToShow - 40;
 const movePosition = slidesToScroll * (itemWidth + 40);
 
 items.forEach((item) => {

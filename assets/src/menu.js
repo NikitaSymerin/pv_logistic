@@ -1,10 +1,11 @@
 const menu = document.getElementById("menu");
 const docWidth = document.documentElement.clientWidth;
 
-if (docWidth <= 340) {
+if (docWidth <= 640) {
   menu.classList.remove("d-none");
-  document.getElementById("links").classList.remove("d-none");
+  document.getElementById("links").classList.add("d-none");
   document.getElementById("links2").classList.add("d-none");
+  document.getElementById("ordercall").classList.add("d-none");
 }
 
 menu.addEventListener("click", () => {

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&apikey=67b7c65a-2624-4547-80bf-a2986c7e694e"></script>
     <script src="./src/calc.js"></script>
+    <script src="../src/formcalc.js"></script>
     <link href="styles/index.css" rel="stylesheet" />
     <link rel="shortcut icon" href="img/favicon.svg" type="image/svg">
     <link href="styles/lib.css" rel="stylesheet" />
@@ -20,11 +21,13 @@
     <%- include("./components/loader") %>
     <%- include("./components/menu") %>
 
+    <div id="back"></div>
+
     <section class="main about__main2">
         <div class="mg">
             <%- include("./components/header") %>
                 <div class="wrapper wrapper__about2">
-                    <div class="wrapper__text">
+                    <div class="wrapper__text wrapper__about2__text">
                         <span class="wrapper__title">ГРУЗОПЕРЕВОЗКИ ПО ВСЕЙ РОССИИ</span>
                     </div>
                     <div class="wrapper__footer2 bordered">
@@ -37,7 +40,6 @@
                 
         </div>
     </section>
-    <div class="transition"></div>
 
     <main class="about">
         <div class="mg">
@@ -51,7 +53,7 @@
                 </div>
                 <div class="about__forwhat__item item__img block__img3"></div>
             </div>
-            <div class="about__block2">
+            <div class="about__block2 check">
                 <div class="about__block2__item item__block">
                     <span class="item__title">ДОСТАВКА ТОВАРОВ НА ДОМ</span>
                     <span>Мы осуществляем доставку товаров любых категорий на дом.
@@ -82,12 +84,26 @@
                 </div>
             </div>
 
+            <div class="about__text">
+                <div class="about__title cens">ДОСТАВЛЯЕМ ГРУЗЫ ПО ВСЕЙ РОССИИ</div>
+            </div>
+            <div class="map">
+                <img src="img/map.png">
+                <img src="img/end.svg" class="iconmap" id="end1">
+                <img src="img/end.svg" class="iconmap" id="end2">
+                <img src="img/end.svg" class="iconmap" id="end3">
+                <img src="img/plane.png" class="iconmap" id="object1">
+                <img src="img/plane.png" class="iconmap" id="object2">
+                <img src="img/plane.png" class="iconmap" id="object3">
+            </div>
+
             <div class="about__text cens text_con">
                 <div class="about__title">СТРАХОВАНИЕ ГРУЗОВ
                 </div>
             </div>
-            <div class="about__forwhat forwhat__grid">
-                <div class="about__forwhat__item item__block dark__back">
+            <div class="about__forwhat check">
+                <div class="about__forwhat__item item__img block__img4"></div>
+                <div class="about__forwhat__item item__block">
                     <span class="item__title">МЫ ПРЕДОСТАВЛЯЕМ УСЛУГИ</span>
                     <span>по страхованию грузов, чтобы Ваши грузы были защищены в случае непредвиденных обстоятельств.
                     </span>
@@ -98,9 +114,8 @@
                         предоставляем ВЫГОДНЫЕ условия
                         для постоянных клиентов.</span>
                 </div>
-                <div class="about__forwhat__item item__img block__img4"></div>
             </div>
-            <div class="about__text cens">
+            <div class="about__text checkmate dark__back">
                 <div class="about__title">СВЯЖИТЕСЬ С НАМИ
                 </div>
                 <div style="font-size: 24px;" class="about_desc">чтобы заказать наши услуги и получить подробную консультацию по всем вопросам,
@@ -113,6 +128,9 @@
     <%- include("./components/footer") %>
     <%- include("./components/modal") %>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" crossorigin="anonymous" defer></script>
+	<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./src/block.js"></script>
     <script defer src="./src/main.js"></script>  
     <script defer src="./src/menu.js"></script>
     <script defer src="./src/modal.js"></script>

@@ -4,6 +4,7 @@ const successModal = document.querySelector(".success__modal__window");
 const orderModal = document.querySelector(".order__modal__window");
 const subModal = document.querySelector(".sub__modal__window");
 const fullCalcModal = document.querySelector(".fullcalc__modal__window");
+const container = document.querySelector(".container");
 
 const data = {
   name: "",
@@ -31,12 +32,17 @@ document.getElementById("closeFullCalc").addEventListener("click", () => {
   closeModal();
 })
 
+document.getElementById("closeOrderCall").addEventListener("click", () => {
+  closeModal();
+})
+
 function cancelSub() {
   popup.style.opacity = "0";
   popup.style.zIndex = "-1";
 }
 
 function orderPhoneCall() {
+  document.getElementById("menuPopup").classList.remove("showMenu");
   modalWindow.style.display = "none";
   modal.classList.add("calc__modal--active");
   modal.style.background = "rgba(0, 0, 0, 0.5)";
@@ -251,7 +257,8 @@ async function postCall() {
   }
 }
 
-async function orderCall() {
+async function orderCall(e) {
+  e.preventDefault();
   showLoader();
   await postCall();
   hideLoader();
