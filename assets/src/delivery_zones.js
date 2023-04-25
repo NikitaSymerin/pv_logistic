@@ -185,7 +185,7 @@ function init() {
                 price = parseInt(price.match(/<strong>.*?(\d+).*?<\/strong>/)[1]);
                 distance = distance / 1000;
                 var volume = parseInt(document.getElementById('volume').value);
-                var priceNotInPolygon = (parseFloat(price) + (32 * distance)) * volume;
+                var priceNotInPolygon = (parseInt(price) + (32 * distance)) * volume;
                 // Задаём контент балуна и метки.
                 deliveryPoint.properties.set({
                     iconCaption: `Цена ${priceNotInPolygon.toFixed(0)} руб. за ${volume} м³`,
@@ -206,7 +206,7 @@ function init() {
                 var price = polygon.properties.get('description');
                 price = parseInt(price.match(/<strong>.*?(\d+).*?<\/strong>/)[1]);
                 var volume = parseInt(document.getElementById('volume').value);
-                var priceInPolygon = parseFloat(price) * volume;
+                var priceInPolygon = parseInt(price) * volume;
                 deliveryPoint.properties.set({
                   iconCaption: `Цена ${priceInPolygon.toFixed(0)} руб. за ${volume} м³`,
                   //balloonContent: address,

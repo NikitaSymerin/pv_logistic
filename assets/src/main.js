@@ -39,10 +39,12 @@ if (video)
   });
 
 window.addEventListener("load", function () {
-  if (videoContainer)
+  if (videoContainer) {
+    video.play();
     setTimeout(() => {
       videoContainer.style.opacity = "0";
     }, timeVideo * 1000);
+  }
   if (docWidth >= 470)
     if (popup)
       setTimeout(() => {

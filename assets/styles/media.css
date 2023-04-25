@@ -1,6 +1,24 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 @media screen and (min-width: 1600px) and (max-width: 5000px) {
+  .custom-list .checkmark {
+    width: 35px !important;
+    height: 35px !important;
+    margin-right: 20px !important;
+  }
+  .custom-list .checkmark::before {
+    width: 25px !important;
+    height: 25px !important;
+  }
+  .header__item__links a {
+    font-size: 24px !important;
+  }
+  .header__item__links a:hover {
+    font-size: 28px !important;
+  }
+  .custom-list {
+    margin-left: 75px !important;
+  }
   .wrapper__form {
     width: 30vw !important;
   }
@@ -22,6 +40,28 @@
   }
 }
 
+@media screen and (min-width: 640px) and (max-width: 1024px) {
+  .custom-list {
+    margin-left: 50px !important;
+  }
+  .grid3 {
+    width: 15vw !important;
+    min-width: auto !important;
+  }
+  .header__item__logo {
+    width: auto !important;
+  }
+  .header__item__logo {
+    margin-bottom: 10px !important;
+  }
+  .header__item__links a {
+    font-size: 16px !important;
+  }
+  .header__item__links a:hover {
+    font-size: 18px !important;
+  }
+}
+
 @media screen and (min-width: 1024px) and (max-width: 1440px) {
   .fullcalc__modal__window form *,
   .fullcalc__modal__window form .input-item {
@@ -32,7 +72,6 @@
   }
   .header__item {
     font-size: 14px;
-    min-width: 120px !important;
   }
   .mg {
     margin: 0 4vw !important;
@@ -123,6 +162,15 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 1024px) {
+  .mgg .wrapper .wrapper__text {
+    width: 75vw !important;
+  }
+  .title_head {
+    text-align: left !important;
+  }
+  .mgg {
+    padding: 0 25px 25px 25px !important;
+  }
   .footer__text {
     justify-content: center;
     margin-bottom: 50px;
@@ -130,18 +178,7 @@
   .footer__text__contact {
     height: 300px;
   }
-  .mgg {
-    padding: 0 25px 25px 25px !important;
-  }
-  .wrapper__form {
-    display: flex;
-    align-items: center;
-    flex-flow: column;
-    text-align: center;
-  }
-  .custom-list li {
-    justify-content: center;
-  }
+  
   .wrapper__about {
     flex-direction: row !important;
     margin: 50px 0;
@@ -315,6 +352,39 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 640px) {
+  .footer__text__addition {
+    padding-left: 15px !important;
+  }
+  .wrapper__about {
+    margin: 50px 0 !important;
+  }
+  .mgg .wrapper__about .wrapper__text {
+    width: auto !important;
+  }
+  .header__item {
+    min-width: auto !important;
+  }
+  header {
+    height: 100px !important;
+  }
+  .grid1 {
+    margin-bottom: 15px;
+  }
+  .grid1 a {
+    display: flex !important;
+  }
+  .header__item__logo {
+    width: 70% !important;
+  }
+  .wrapper__form {
+    text-align: left !important;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+  }
+  .title_head {
+    text-align: left !important;
+  }
   ymaps.ymaps-2-1-79-search__suggest, ymaps.ymaps-2-1-79-suggest-item, ymaps.ymaps-2-1-79-search__suggest-item {
     width: 400px;
   }
@@ -434,9 +504,6 @@
   .modal__item2 {
     grid-column-start: auto !important;
   }
-  .header__item {
-    min-width: 100px !important;
-  }
   .header__item__links {
     flex-flow: row !important;
     width: 95vw !important;
@@ -511,7 +578,7 @@
     grid-template-rows: 1fr 1.5fr 1.5fr !important;
   }
   .coop__item:nth-child(1) {
-    background-image: url("../img/car_btn.png") !important;
+    background-image: linear-gradient(to bottom, #20202063, #20202063), url(../img/car_btn.png) !important;
     background-size: 90% !important;
     grid-column-start: 1 span !important;
     grid-row-start: 2 span !important;
@@ -563,7 +630,7 @@
     font-size: 9vw !important;
   }
   .wrapper .wrapper__text .wrapper__title {
-    font-size: 2rem !important;
+    font-size: 7.3vw !important;
   }
   .fullcalc__modal__window .form_btn {
     height: auto !important;
@@ -616,18 +683,6 @@
 }
 
 @media screen and (min-width: 320px) and (max-width: 340px) {
-  header {
-    grid-template-columns: auto !important;
-    grid-template-rows: auto !important;
-  }
-  .grid2 {
-    grid-row-start: 2 !important;
-    grid-column-start: 1 !important;
-  }
-  .grid3 {
-    grid-row-start: 2 !important;
-    grid-column-start: 2 !important;
-  }
   .header__item__links {
     flex-flow: column !important;
     width: 50vw !important;

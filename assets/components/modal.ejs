@@ -76,7 +76,11 @@
 
                 <label>Откуда:</label><br>
                 <input class="input-item" type="text" name="from" id="from"><br>
-                <script>function init() { new ymaps.SuggestView("from") } ymaps.ready(init)</script>
+                <script>
+                ymaps.ready(init); function init() { 
+                    var suggestView = new ymaps.SuggestView("from")
+                }
+                </script>
                 <br>
                 <input type="checkbox" name="pickupFrom" value="true">
                 <span>Самостоятельно привезти груз на терминал</span>
@@ -87,7 +91,11 @@
 
                 <label>Куда:</label><br>
                 <input class="input-item" type="text" name="to" id="to"><br>
-                <script>function init() { new ymaps.SuggestView("to") } ymaps.ready(init)</script>
+                <script>
+                    ymaps.ready(init); function init() { 
+                        var suggestView = new ymaps.SuggestView("to")
+                    }
+                </script>
                 <input type="checkbox" name="pickupTo" value="true">
                 <span>Самостоятельно забрать груз с терминала:</span>
                 <br>

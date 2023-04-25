@@ -26,17 +26,18 @@
 
     <section class="main">
         <div id="video">
-            <video muted playsinline autoplay width="100%" height="100%" id="videoplay">
+            <video autoplay muted playsinline width="100%" height="100%" id="videoplay">
                 <source src="video/IMG_4943.avi">
                 <source src="video/IMG_4943.MP4">
                 <source src="video/IMG_4943.mov">
             </video>
+        <script async src="./src/main.js"></script>
         </div>
         <div class="mgg">
             <%- include("./components/header") %>
                 <div class="wrapper mb">
                     <div class="wrapper__text">
-                        <span class="wrapper__title">ДОСТАВКА ГРУЗОВ ДО МАРКЕТПЛЕЙСА</span>
+                        <span class="wrapper__title title_head">ДОСТАВКА ГРУЗОВ ДО МАРКЕТПЛЕЙСА</span>
                     </div>
                     <div class="wrapper__form">
                         <ul class="custom-list">
@@ -126,6 +127,26 @@
                 </div>
             </div>
             <div class="about__text">
+                <div class="about__title">ДОСТАВКА НА МАРКЕТПЛЕЙСЫ: ПРОДАВАЙТЕ БЕЗ ЗАБОТ</div>
+            </div>
+            <div class="about__coop">
+                <div class="coop__item">
+                    <span class="coop__title">ОПЕРАТИВНАЯ ПОДГОТОВКА ТОВАРОВ ДЛЯ ОТПРАВКИ</span>
+                    <!-- <span class="coop_desc">Хотите доверить доставку своих товаров на маркетплейсы надежной компании с богатым опытом и высоким уровнем обслуживания? Мы готовы предложить вам наше профессиональное сотрудничество и гарантируем безопасную и своевременную доставку.</span> -->
+                    <!-- <a href="#target"><button class="form_btn bordered">Выбрать</button></a> -->
+                </div>
+                <div class="coop__item">
+                    <span class="coop__title">БЫСТРАЯ ДОСТАВКА НА СКЛАДЫ И МАРКЕТПЛЕЙСЫ</span>
+                    <!-- <span class="coop_desc">Мы знаем, как важна для вас быстрая и качественная доставка ваших товаров на маркетплейсы. Наша компания имеет все необходимые ресурсы и опыт, чтобы обеспечить вам высокий уровень сервиса. Рассмотрите возможность сотрудничества с нами и получите надежного партнера в доставке товаров.</span> -->
+                    <!-- <a href="./about"><button class="form_btn bordered btn_white">Выбрать</button></a> -->
+                </div>
+                <div class="coop__item">
+                    <span class="coop__title">МОНИТОРИНГ И КОНТРОЛЬ НА ВСЕХ ЭТАПАХ</span>
+                    <!-- <span class="coop_desc">Мы обеспечиваем быструю и надежную доставку по конкурентоспособным ценам, а также возможность интеграции с вашими системами управления складом и заказами. Давайте вместе развивать ваш бизнес и увеличивать объемы продаж на маркетплейсах!</span> -->
+                    <!-- <a href="./about2"><button class="form_btn bordered btn_white">Выбрать</button></a> -->
+                </div>
+            </div>
+            <!-- <div class="about__text">
                 <div class="about__title cens">ПЕРЕВОЗКИ ДО ПУНКТОВ ВЫДАЧИ ЗАКАЗОВ</div>
             </div>
             <div class="about__statistics">
@@ -152,7 +173,7 @@
                 <div class="statistics__item">
                     <span class="item__title">ДОСТАВЛЯЕМ ТОВАРЫ ДО 2800 ПВЗ В 24 ГОРОДАХ</span>
                 </div>
-            </div>
+            </div> -->
             <div class="about__text">
                 <div class="about__title">КЛЮЧЕВЫЕ ПАРТНЕРЫ</div>
                 <div class="about_desc">Маркетплейсы</div>
@@ -257,27 +278,8 @@
                     <span>Мы обо всем позаботимся! Заберем, промаркируем, упакуем и доставим ваш товар</span>
                 </div>
             </div>
-            <div class="about__text">
-                <div class="about__title">ПРЕДЛОЖЕНИЯ СОТРУДНИЧЕСТВА</div>
-            </div>
-            <div class="about__coop">
-                <div class="coop__item">
-                    <span class="coop__title">ДОСТАВКА НА МАРКЕТПЛЕЙСЫ: ПРОФЕССИОНАЛЬНЫЙ СЕРВИС!</span>
-                    <span class="coop_desc">Хотите доверить доставку своих товаров на маркетплейсы надежной компании с богатым опытом и высоким уровнем обслуживания? Мы готовы предложить вам наше профессиональное сотрудничество и гарантируем безопасную и своевременную доставку.</span>
-                    <a href="#target"><button class="form_btn bordered">Выбрать</button></a>
-                </div>
-                <div class="coop__item">
-                    <span class="coop__title">НАДЕЖНЫЙ ПАРТНЕР ДЛЯ ВАШЕГО БИЗНЕСА: НАМ МОЖНО ДОВЕРЯТЬ!</span>
-                    <span class="coop_desc">Мы знаем, как важна для вас быстрая и качественная доставка ваших товаров на маркетплейсы. Наша компания имеет все необходимые ресурсы и опыт, чтобы обеспечить вам высокий уровень сервиса. Рассмотрите возможность сотрудничества с нами и получите надежного партнера в доставке товаров.</span>
-                    <a href="./about"><button class="form_btn bordered btn_white">Выбрать</button></a>
-                </div>
-                <div class="coop__item">
-                    <span class="coop__title">ДЕЛАЙТЕ БОЛЬШЕ С МЕНЬШИМИ ЗАТРАТАМИ ВМЕСТЕ С НАМИ!</span>
-                    <span class="coop_desc">Мы обеспечиваем быструю и надежную доставку по конкурентоспособным ценам, а также возможность интеграции с вашими системами управления складом и заказами. Давайте вместе развивать ваш бизнес и увеличивать объемы продаж на маркетплейсах!</span>
-                    <a href="./about2"><button class="form_btn bordered btn_white">Выбрать</button></a>
-                </div>
-            </div>
-            <div class="about__text">
+            
+            <!-- <div class="about__text">
                 <div class="about__title cens">ЛОГИСТИКА ДЛЯ МАРКЕТПЛЕЙСОВ</div>
             </div>
             <div class="about__log">
@@ -296,7 +298,7 @@
                 <img src="img/arrow.png" class="arrow4 vec">
                 <img src="img/arrow.png" class="arrow5 vec">
                 <img src="img/arrow.png" class="arrow6 vec">
-            </div>
+            </div> -->
             
             <!-- <div class="about__text">
                 <div class="about__title cens" id="target">РАСЧЁТ СТОИМОСТИ</div>
@@ -331,8 +333,7 @@
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" crossorigin="anonymous" defer></script>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="./src/block.js"></script>
-    <script defer src="./src/main.js"></script>
+    <!-- <script src="./src/block.js"></script> -->
     <script defer src="./src/modal.js"></script>
     <script defer src="./src/menu.js"></script>
     <script defer src="./src/slider.js"></script>

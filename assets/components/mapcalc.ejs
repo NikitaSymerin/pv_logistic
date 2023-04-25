@@ -1,10 +1,11 @@
 <div id="map"></div>
 <div class="about__text">
     <div class="about__title">Введите полученный объём и адрес</div>
+    <button style="width: 50%; margin-top: 15px;" id="ordercall" onclick="orderPhoneCall()" class="header__item__button bordered">ЗАКАЗАТЬ ЗВОНОК</button>
 </div>
 <div class="form__map">
     <input class="input-item" type="text" id="addressInput" name="addressInput" placeholder="Введите адрес доставки"
-        style="width: 100%; margin-bottom: 10px;">
+        style="width: 80% !important; margin-bottom: 10px;">
 
     <script>
         ymaps.ready(init);
@@ -13,8 +14,8 @@
         }
     </script>
     <input class="input-item" type="number" id="volume" name="volume" min="0" placeholder="Введите объем"
-        style="width: 100%; margin-bottom: 10px;">
+        style="width: 80% !important; margin-bottom: 10px;">
     <button id=searchButton class="form_btn"
-        style="border:none;color:#fff;text-align:center;text-decoration:none;display:inline-block;margin-bottom:10px;cursor:pointer;">Рассчитать
+        style="width: 80%; height: 60px;border:none;color:#fff;text-align:center;text-decoration:none;display:inline-block;margin-bottom:10px;cursor:pointer;">Рассчитать
     </button>
 </div>
