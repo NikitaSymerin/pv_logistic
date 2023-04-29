@@ -8,6 +8,7 @@ const isSub = document.getElementById("isSub");
 const docHeight = document.documentElement.clientHeight;
 const backBtn = document.getElementById("back");
 const list = document.querySelector(".custom-list");
+const main = document.querySelector(".main");
 let timeVideo = 0;
 
 function scrollToTop() {
@@ -42,6 +43,7 @@ window.addEventListener("load", function () {
   if (videoContainer) {
     video.play();
     setTimeout(() => {
+      main.classList.remove("main__hidden");
       videoContainer.style.opacity = "0";
     }, timeVideo * 1000);
   }

@@ -46,6 +46,14 @@ ymaps canvas {
   background-position: 100%;
 }
 
+.form__map .btn_hid {
+  display: none;
+}
+
+.main__hidden {
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 1)) !important;
+}
+
 .about__text:nth-child(1) {
   margin-top: 30px !important;
 }
@@ -100,7 +108,15 @@ header {
   font-size: 20px;
 }
 
+.titles__slide {
+  display: flex;
+  justify-content: space-between;
+  text-align: right;
+  align-items: center;
+}
+
 #back {
+  z-index: 1000 !important;
   position: fixed;
   top: -100%;
   right: 4%;
@@ -803,8 +819,8 @@ form {
   justify-content: space-between;
 }
 
-.btn__prev,
-.btn__next {
+.btn__prev, .btn__prev2,
+.btn__next, .btn__next2 {
   height: 60px;
   width: 60px;
   border-radius: 50px;
@@ -812,8 +828,8 @@ form {
 }
 
 .slider__buttons,
-.btn__prev,
-.btn__next {
+.btn__prev, .btn__prev2,
+.btn__next, .btn__next2 {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -821,8 +837,17 @@ form {
   transition: none;
 }
 
-.btn__prev {
+.btn__prev, .btn__prev2 {
   transform: rotate(180deg);
+}
+
+.slider__container2 {
+  margin-top: 25px;
+  margin-bottom: -100px;
+}
+
+.img__slide {
+  min-width: 100%;
 }
 
 .slider__item {
@@ -872,11 +897,11 @@ form {
   background-color: #121212;
 }
 
-.slider__container {
+.slider__container, .slider__container2 {
   overflow: hidden;
 }
 
-.slider__track {
+.slider__track, .slider__track2 {
   display: flex;
   transition: 0.2s ease;
   overflow: visible;
@@ -1008,7 +1033,8 @@ footer {
 }
 
 .fullcalc__modal__window {
-  top: -12%;
+  transform: none !important;
+  top: 0;
 }
 
 .fullcalc__modal__window form *,
@@ -1373,7 +1399,7 @@ footer {
   will-change: transform;
 }
 
-.form__map {
+.form__map, .form__map2 {
   margin-top: 20px;
   width: 100%;
   display: flex;
@@ -1584,7 +1610,7 @@ footer {
 
 /* Стиль формы */
 form.small {
-  background-color: #33343e;
+  background-color: #343a46;
   color: #fff;
   font-family: "Inter", sans-serif;
   border-radius: 10px;
@@ -1727,6 +1753,20 @@ form.small label {
   margin-left: 50px;
 }
 
+#map2 {
+  height: 500px;
+  width: 100%;
+  margin-top: 50px;
+}
+
+.map__text {
+  margin-top: 50px !important;
+}
+
+.form__map2 {
+  align-items: flex-start !important;
+}
+
 @media screen and (min-width: 320px) and (max-width: 640px) {
   .loadercar:before {
     animation: loaderMobile 1s linear infinite;
@@ -1753,6 +1793,7 @@ form.small label {
 
 .video__block {
   height: 450px;
+  margin-bottom: 100px;
 }
 
 .video-container {
@@ -2054,4 +2095,12 @@ form.small label {
 
 .footer__text__contact span, .footer__text__addition span {
    font-size: 18px;
+}
+
+.mg.containerr {
+  padding: 0 !important;
+}
+
+.mainn {
+  margin: 100px 0;
 }

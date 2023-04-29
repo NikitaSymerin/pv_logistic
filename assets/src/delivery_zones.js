@@ -182,10 +182,10 @@ function init() {
                 var nearestPolygon = deliveryZones.getClosestTo(coords);
                 var distance = nearestPolygon.geometry.getClosest(coords).distance;
                 var price = nearestPolygon.properties.get('description');
-                price = parseInt(price.match(/<strong>.*?(\d+).*?<\/strong>/)[1]);
+                price = parseFloat(price.match(/<strong>.*?(\d+).*?<\/strong>/)[1]);
                 distance = distance / 1000;
-                var volume = parseInt(document.getElementById('volume').value);
-                var priceNotInPolygon = (parseInt(price) + (32 * distance)) * volume;
+                var volume = parseFloat(document.getElementById('volume').value);
+                var priceNotInPolygon = (parseFloat(price) + (32 * distance)) * volume;
                 // Задаём контент балуна и метки.
                 deliveryPoint.properties.set({
                     iconCaption: `Цена ${priceNotInPolygon.toFixed(0)} руб. за ${volume} м³`,
@@ -204,9 +204,9 @@ function init() {
                     address = obj.getAddressLine();
                 }
                 var price = polygon.properties.get('description');
-                price = parseInt(price.match(/<strong>.*?(\d+).*?<\/strong>/)[1]);
-                var volume = parseInt(document.getElementById('volume').value);
-                var priceInPolygon = parseInt(price) * volume;
+                price = parseFloat(price.match(/<strong>.*?(\d+).*?<\/strong>/)[1]);
+                var volume = parseFloat(document.getElementById('volume').value);
+                var priceInPolygon = parseFloat(price) * volume;
                 deliveryPoint.properties.set({
                   iconCaption: `Цена ${priceInPolygon.toFixed(0)} руб. за ${volume} м³`,
                   //balloonContent: address,
