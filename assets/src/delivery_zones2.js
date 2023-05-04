@@ -10,7 +10,7 @@ function init() {
         iconContent: "Зона 2"
       }, {
 
-        preset: 'islands#yellowStretchyIcon'
+        preset: 'islands#greenStretchyIcon'
       });
     
       myMap.geoObjects.add(placemark1);
@@ -19,7 +19,7 @@ function init() {
             iconContent: "Зона 3"
       }, {
 
-        preset: 'islands#greenStretchyIcon'
+        preset: 'islands#yellowStretchyIcon'
       });
     
       myMap.geoObjects.add(placemark2);
@@ -37,7 +37,7 @@ function init() {
             iconContent: "Зона 2"
       }, {
 
-        preset: 'islands#yellowStretchyIcon'
+        preset: 'islands#greenStretchyIcon'
       });
     
       myMap.geoObjects.add(placemark4);
@@ -60,8 +60,8 @@ function init() {
     searchControl.options.set({noPlacemark: true, placeholderContent: 'Введите адрес доставки'});
     myMap.geoObjects.add(deliveryPoint);
     
-    var searchButton2 = document.getElementById('searchButton2');
-    searchButton2.addEventListener('click', function(event) {
+    var searchButton = document.getElementById('searchButton2');
+    searchButton.addEventListener('click', function(event) {
       event.preventDefault();
       let to = document.querySelector('input[name="addressInput2"]').value;
       let volume = document.querySelector('input[name="volume2"]').value;
@@ -86,10 +86,12 @@ function init() {
               imageHeight: 100,
               imageAlt: 'Логотип'
             });
-            return;
+          } else {
+            buttonClicks++;
+            writeToFile(buttonClicks);
+            var address = document.getElementById('addressInput2').value;
+            searchControl.search(address); // Перемещаем вызов searchControl.search() сюда
           }
-          buttonClicks++;
-          writeToFile(buttonClicks);	
           function writeToFile(data) {
             const xhr = new XMLHttpRequest();
             xhr.open('POST', 'set-clicks.php');
@@ -100,10 +102,8 @@ function init() {
         .catch(error => {
           console.error(error);
         });
-      var address = document.getElementById('addressInput2').value;
-      searchControl.search(address);
-        
     });
+
 
 
 
@@ -148,77 +148,76 @@ function init() {
         });
 
         function highlightResult(obj) {
-            // Сохраняем координаты переданного объекта.
             var coords = obj.geometry.getCoordinates(),
-            // Находим полигон, в который входят переданные координаты.
                 polygon = deliveryZones.searchContaining(coords).get(0);
-                zoom = 11; // Значение зума по умолчанию
-
+            zoom = 11;
+            
+            function setData(obj, polygon, volume, isNearestPolygon = false) {
+                var description = polygon.properties.get('description');
+                var price = parseInt(description.match(/<strong>.*?(\d+).*?<\/strong>/)[1]);
+                var zone = parseInt(description.match(/data-zone="(\d+)"/)[1]);
+                var priceAdditions = [
+                    [0, 324, 984, 1644, 1644, 2304, 2304, 2304, 2832, 2832, 4680, 4680, 4680, 4680, 4680], // Зона 1
+                    [0, 348, 1008, 1668, 1668, 2328, 2328, 2328, 2856, 2856, 5760, 5760, 5760, 5760, 5760], // Зона 2
+                    [0, 372, 1032, 1692, 1692, 2352, 2352, 2352, 2880, 2880, 5520, 5520, 5520, 5520, 5520]  // Зона 3
+                ];
+        
+                if (volume > 0 && volume <= 15) {
+                    priceInPolygon = parseFloat(price) + priceAdditions[zone - 1][volume - 1];
+                } else {
+                    priceInPolygon = 'Cвяжитесь с оператором';
+                }
+        
+                if (isNearestPolygon) {
+                    return priceInPolygon;
+                } else {
+                    if (priceInPolygon == 'Cвяжитесь с оператором') {
+                        deliveryPoint.properties.set({
+                            iconCaption: priceInPolygon,
+                        });
+                    } else {
+                        deliveryPoint.properties.set({
+                            iconCaption: `Цена ${priceInPolygon.toFixed(0)} руб. за ${volume} м³`,
+                        });
+                    }
+        
+                    myMap.setZoom(zoom);
+                }
+            }
+            
+            var volume = parseInt(document.getElementById('volume2').value);
+        
             if (polygon) {
-                // Уменьшаем прозрачность всех полигонов, кроме того, в который входят переданные координаты.
                 deliveryZones.setOptions('fillOpacity', 0.4);
                 polygon.options.set('fillOpacity', 0.8);
-                // Перемещаем метку с подписью в переданные координаты и перекрашиваем её в цвет полигона.
                 deliveryPoint.geometry.setCoordinates(coords);
                 deliveryPoint.options.set('iconColor', polygon.properties.get('fill'));
-                // Задаем подпись для метки.
-                if (typeof(obj.getThoroughfare) === 'function') {
-                    setData(obj);
-                } else {
-                    // Если вы не хотите, чтобы при каждом перемещении метки отправлялся запрос к геокодеру,
-                    // закомментируйте код ниже.
-                    ymaps.geocode(coords, {results: 1}).then(function (res) {
-                        var obj = res.geoObjects.get(0);
-                        setData(obj);
-                    });
-                }
+                setData(obj, polygon, volume);
                 zoom = 11;
             } else {
-                // Если переданные координаты не попадают в полигон, то задаём стандартную прозрачность полигонов.
                 deliveryZones.setOptions('fillOpacity', 0.4);
-                // Перемещаем метку по переданным координатам.
                 deliveryPoint.geometry.setCoordinates(coords);
-                // Находим ближайший полигон и рассчитываем расстояние до него.
                 var nearestPolygon = deliveryZones.getClosestTo(coords);
                 var distance = nearestPolygon.geometry.getClosest(coords).distance;
-                var price = nearestPolygon.properties.get('description');
-                price = parseInt(price.match(/<strong>.*?(\d+).*?<\/strong>/)[1]);
                 distance = distance / 1000;
-                var volume = parseInt(document.getElementById('volume2').value);
-                var priceNotInPolygon = (parseFloat(price) + (32 * distance)) * volume;
-                // Задаём контент балуна и метки.
-                deliveryPoint.properties.set({
-                    iconCaption: `Цена ${priceNotInPolygon.toFixed(0)} руб. за ${volume} м³`,
-                    //balloonContent: `Расстояние ${distance.toFixed(2)} км`,
-                    //balloonContentHeader: ''
+        
+                ymaps.geocode(nearestPolygon.geometry.getCoordinates(), {results: 1}).then(function (res) {
+                    var nearestObj = res.geoObjects.get(0);
+                    var priceFromNearestPolygon = setData(nearestObj, nearestPolygon, volume, true);
+                    var priceNotInPolygon = priceFromNearestPolygon + (32 * distance);
+                    deliveryPoint.properties.set({
+                        iconCaption: `Цена ${priceNotInPolygon.toFixed(0)} руб. за ${volume} м³`,
+                    });
                 });
-
+        
                 myMap.setZoom(zoom);
-                // Перекрашиваем метку в чёрный цвет.
                 deliveryPoint.options.set('iconColor', 'black');
-            }
-
-            function setData(obj){
-                var address = [obj.getThoroughfare(), obj.getPremiseNumber(), obj.getPremise()].join(' ');
-                if (address.trim() === '') {
-                    address = obj.getAddressLine();
-                }
-                var price = polygon.properties.get('description');
-                price = parseInt(price.match(/<strong>.*?(\d+).*?<\/strong>/)[1]);
-                var volume = parseInt(document.getElementById('volume2').value);
-                var priceInPolygon = parseFloat(price) * volume;
-                deliveryPoint.properties.set({
-                  iconCaption: `Цена ${priceInPolygon.toFixed(0)} руб. за ${volume} м³`,
-                  //balloonContent: address,
-                  //balloonContentHeader: price
-                });
-                myMap.setZoom(zoom);
             }
         }
     }
 
     $.ajax({
-        url: 'data2.geojson',
+        url: 'data.geojson',
         dataType: 'json',
         success: onZonesLoad
     });

@@ -1,21 +1,28 @@
-<div id="map2"></div>
-<div class="about__text map__text">
-    <div class="about__title">Электросталь</div>
-</div>
-<div class="form__map2">
-    <input class="input-item" type="text" id="addressInput2" name="addressInput2" placeholder="Введите адрес доставки"
-        style="width: 550px; margin-bottom: 10px;">
+<div class="map__container map-grid2">
+    <div class="about__text titles__slide">
+        <div class="about__title">Электросталь</div>
+        <img src="../img/wb.png">
+    </div>
+    <div id="map2"></div>
+    <div class="form__map">
+        <input class="input-item" type="text" id="addressInput2" name="addressInput2"
+            placeholder="Введите адрес доставки" style="width: 80% !important; margin-bottom: 10px;">
 
-    <script>
-        ymaps.ready(init);
-        function init() {
-            var suggestView = new ymaps.SuggestView('addressInput2');
-        }
-    </script>
-    <input class="input-item" type="number" id="volume2" name="volume2" min="0" placeholder="Введите объем"
-        style="width: 550px; max-width: 100%; margin-bottom: 10px;">
-    <button id=searchButton2 class="form_btn"
-        style="width: 550px; max-width: 100%; height: 60px;border:none;color:#fff;text-align:center;text-decoration:none;display:inline-block;margin-bottom:10px;cursor:pointer;">Рассчитать
-    </button>
-    <button style="width: 550px; max-width: 100%; margin-top: 15px;" id="ordercall" onclick="orderPhoneCall()" class="header__item__button bordered">ЗАКАЗАТЬ ЗВОНОК</button>
+        <script>
+            ymaps.ready(init);
+            function init() {
+                var suggestView = new ymaps.SuggestView('addressInput2');
+            }
+        </script>
+        <input class="input-item" type="number" id="volume2" name="volume2" min="0" placeholder="Введите объем"
+            style="width: 80% !important; margin-bottom: 10px;">
+        <button id=searchButton2 class="form_btn"
+            style="width: 80%; height: 60px;border:none;color:#fff;text-align:center;text-decoration:none;display:inline-block;margin-bottom:10px;cursor:pointer;">Рассчитать
+        </button>
+        <div class="about__text titles__slide">
+            <div class="about__title">Электросталь</div>
+            <img src="../img/wb.png">
+        </div>
+        <img class="map-img" src="../img/электросталь.png" style="margin-top: 35px;">
+    </div>
 </div>
