@@ -1433,7 +1433,7 @@ footer {
 }
 
 #contacts {
-  z-index: 10000;
+  z-index: 10;
   position: absolute;
   display: flex;
   flex-flow: column;
@@ -1445,6 +1445,15 @@ footer {
   padding-top: 10px;
   font-size: 24px;
   font-weight: 700;
+}
+
+.iframe_map {
+  width: 100%;
+  height: 100%;
+}
+
+.map-grid2 {
+  margin-top: 75px;
 }
 
 .map-img {

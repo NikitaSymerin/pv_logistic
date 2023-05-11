@@ -1,6 +1,6 @@
 ymaps.ready(init);
 function init() {
-    var myMap = new ymaps.Map('map', {
+    let myMap = new ymaps.Map('map', {
         center: [37.621133, 55.760122],
         zoom: 10,
         controls: ['geolocationControl', 'searchControl']
@@ -47,7 +47,7 @@ function init() {
     
 
     
-    var deliveryPoint = new ymaps.GeoObject({
+    let deliveryPoint = new ymaps.GeoObject({
         geometry: {type: 'Point'},
         properties: {iconCaption: 'Адрес'}
     }, {
@@ -60,7 +60,7 @@ function init() {
     searchControl.options.set({noPlacemark: true, placeholderContent: 'Введите адрес доставки'});
     myMap.geoObjects.add(deliveryPoint);
     
-    var searchButton = document.getElementById('searchButton');
+    let searchButton = document.getElementById('searchButton');
     searchButton.addEventListener('click', function(event) {
       event.preventDefault();
       let to = document.querySelector('input[name="addressInput"]').value;
@@ -89,7 +89,7 @@ function init() {
           } else {
             buttonClicks++;
             writeToFile(buttonClicks);
-            var address = document.getElementById('addressInput').value;
+            let address = document.getElementById('addressInput').value;
             searchControl.search(address); // Перемещаем вызов searchControl.search() сюда
           }
           function writeToFile(data) {
@@ -109,7 +109,7 @@ function init() {
 
     function onZonesLoad(json) {
         // Добавляем зоны на карту.
-        var deliveryZones = ymaps.geoQuery(json).addToMap(myMap);
+        let deliveryZones = ymaps.geoQuery(json).addToMap(myMap);
         // Задаём цвет и контент балунов полигонов.
         deliveryZones.each(function (obj) {
           obj.events.add('click', function (e) {
@@ -148,15 +148,15 @@ function init() {
         });
 
         function highlightResult(obj) {
-            var coords = obj.geometry.getCoordinates(),
+            let coords = obj.geometry.getCoordinates(),
                 polygon = deliveryZones.searchContaining(coords).get(0);
             zoom = 11;
             
             function setData(obj, polygon, volume, isNearestPolygon = false) {
-                var description = polygon.properties.get('description');
-                var price = parseInt(description.match(/<strong>.*?(\d+).*?<\/strong>/)[1]);
-                var zone = parseInt(description.match(/data-zone="(\d+)"/)[1]);
-                var priceAdditions = [
+                let description = polygon.properties.get('description');
+                let price = parseInt(description.match(/<strong>.*?(\d+).*?<\/strong>/)[1]);
+                let zone = parseInt(description.match(/data-zone="(\d+)"/)[1]);
+                let priceAdditions = [
                     [0, 204, 864, 1524, 1524, 2184, 2184, 2184, 2712, 2712, 3960, 3960, 3960, 3960, 3960], // Зона 1
                     [0, 228, 888, 1548, 1548, 2208, 2208, 2208, 2736, 2736, 3720, 3720, 3720, 3720, 3720], // Зона 2
                     [0, 252, 912, 1572, 1572, 2232, 2232, 2232, 2760, 2760, 4080, 4080, 4080, 4080, 4080]  // Зона 3
@@ -185,7 +185,7 @@ function init() {
                 }
             }
             
-            var volume = parseInt(document.getElementById('volume').value);
+            let volume = parseInt(document.getElementById('volume').value);
         
             if (polygon) {
                 deliveryZones.setOptions('fillOpacity', 0.4);
@@ -197,14 +197,14 @@ function init() {
             } else {
                 deliveryZones.setOptions('fillOpacity', 0.4);
                 deliveryPoint.geometry.setCoordinates(coords);
-                var nearestPolygon = deliveryZones.getClosestTo(coords);
-                var distance = nearestPolygon.geometry.getClosest(coords).distance;
+                let nearestPolygon = deliveryZones.getClosestTo(coords);
+                let distance = nearestPolygon.geometry.getClosest(coords).distance;
                 distance = distance / 1000;
         
                 ymaps.geocode(nearestPolygon.geometry.getCoordinates(), {results: 1}).then(function (res) {
-                    var nearestObj = res.geoObjects.get(0);
-                    var priceFromNearestPolygon = setData(nearestObj, nearestPolygon, volume, true);
-                    var priceNotInPolygon = priceFromNearestPolygon + (32 * distance);
+                    let nearestObj = res.geoObjects.get(0);
+                    let priceFromNearestPolygon = setData(nearestObj, nearestPolygon, volume, true);
+                    let priceNotInPolygon = priceFromNearestPolygon + (32 * distance);
                     deliveryPoint.properties.set({
                         iconCaption: `Цена ${priceNotInPolygon.toFixed(0)} руб. за ${volume} м³`,
                     });

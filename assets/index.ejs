@@ -208,11 +208,13 @@
         </div>
             <%- include("./components/deliveries") %>
         <div class="mg">
-            <div class="about__text" id="calculate_form">
+            <div class="about__text" id="calculate_form" style="justify-content: center; text-align: center;">
                 <div class="about__title">Предварительный рассчёт</div>
+                <div class="about_desc cens" style="font-size: 20px; font-weight: bold;"><br>Начните работать с нами и получите первый час погрузки и разгрузки <span style="font-weight: bold; color: #c90000; font-size: 20px;">бесплатно</span>!<br><br></div>
+                <span>Далее - стоимость простоя составляет 450 рублей каждый час.</span>
             </div>
             <div class="calcs">
-                <%- include("./components/mapcalc") %>
+                <iframe src="./components/mapcalc.html" class="iframe_map map-grid1" frameborder="0"></iframe>
                 <%- include("./components/mapcalc2") %>
                 <%- include("./components/smallcalc") %>
                 <div class="formm">
